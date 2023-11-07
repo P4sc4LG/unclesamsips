@@ -5,7 +5,6 @@ function useCocktail(nameCocktail) {
   const apiUrl = nameCocktail
     ? `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${nameCocktail}`
     : 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=';
-  console.log(nameCocktail);
 
   useEffect(() => {
     async function fetchCocktails() {
@@ -13,12 +12,12 @@ function useCocktail(nameCocktail) {
         const alphabet = 'abcdefghijklmnopqrstuvwxyz';
         const cocktailsData = [];
         if(!nameCocktail){
-        for (const letter of alphabet) {
-          const response = await fetch(`${apiUrl}${letter}`);
-          const data = await response.json();
-          if (data.drinks) {
-            cocktailsData.push(...data.drinks);
-          }
+            for (const letter of alphabet) {
+            const response = await fetch(`${apiUrl}${letter}`);
+            const data = await response.json();
+            if (data.drinks) {
+                cocktailsData.push(...data.drinks);
+            }
         }
         }else{
             const response = await fetch(
@@ -35,10 +34,6 @@ function useCocktail(nameCocktail) {
 
     fetchCocktails();
 
-    // Nettoyage de l'effet (annulation de l'appel API en cours si le composant est démonté avant la fin de la requête)
-    return () => {
-      // Annulation des tâches en cours, si nécessaire
-    };
   }, [apiUrl]);
 
   return cocktails;
