@@ -31,12 +31,18 @@ function useCocktail(nameCocktail) {
         console.error('Erreur lors de la récupération des cocktails :', error);
       }
     }
-
     fetchCocktails();
+  }, [nameCocktail,apiUrl]);
 
-  }, [apiUrl]);
-
-  return cocktails;
+  function fetchCocktailById(id){
+      const fetchData = async() => {
+        const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
+        const data = await response.json();
+  
+        return data.drinks[0];
+      };
+    return fetchData();
+  }
+  return {cocktails, fetchCocktailById};
 }
-
 export default useCocktail;
