@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "Franklin";   
+    src: local("FRAHVIT"),
+      url("../../fonts/FRAHVIT.TTF");
+}
+.Label {
+    font-family: "Franklin";
+    font-size: 1.2rem;
+}
+
+  
