@@ -43,6 +43,16 @@ function useCocktail(nameCocktail) {
       };
     return fetchData();
   }
-  return {cocktails, fetchCocktailById};
+
+  function fetchRandomCocktail(){
+    const fetchData = async() => {
+      const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php');
+      const data = await response.json();
+     
+      return data.drinks[0];
+    };
+    return fetchData();
+  }
+  return {cocktails, fetchCocktailById, fetchRandomCocktail};
 }
 export default useCocktail;

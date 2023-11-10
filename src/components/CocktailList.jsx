@@ -2,9 +2,17 @@ import React, { useState } from 'react';
 import useCocktail from '../hooks/useCocktail';
 
 function CocktailList() {
-  const {cocktails, fetchCocktailById} = useCocktail('a') ; // Passer null pour obtenir tous les cocktails
+  const {cocktails, fetchCocktailById, fetchRandomCocktail} = useCocktail('a') ; // Passer null pour obtenir tous les cocktails
   const [cocktail, setCocktail] = useState([]);
 
+  const cocktailRandom = async () => {
+    try{
+        const result = await fetchRandomCocktail();
+        console.log(result);
+    }catch(error){
+        console.error('Erreur lors de la recherche du cocktail par ID :', error);
+    }
+  };
   const cocktailById = async (id) => {
     try{
         const result = await fetchCocktailById(id);
@@ -23,7 +31,8 @@ function CocktailList() {
       <ul>
         {cocktails.map(cocktail => (
           <li key={cocktail.idDrink}>{cocktail.idDrink}
-           <button onClick={()=>cocktailById(cocktail.idDrink)}>
+           <button onClick={//()=>cocktailById(cocktail.idDrink)
+           ()=>cocktailRandom()}>
               Rechercher par ID
             </button>
           </li>
