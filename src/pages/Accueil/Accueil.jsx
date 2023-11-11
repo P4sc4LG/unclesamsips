@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CardCocktail from '../../components/CardCocktail/CardCocktail';
 
 import useCocktail from '../../hooks/useCocktail';
@@ -11,8 +11,7 @@ const Accueil = () => {
 
     return (
         <div>
-        <div className="row row-cols-5">
-
+            <div className="row row-cols-5">
                 {cocktails.map(cocktail => (
                     <CardCocktail
                         key={cocktail.idDrink}
@@ -22,7 +21,6 @@ const Accueil = () => {
                         img={cocktail.strDrinkThumb || cocktailEx}
                     />
                 ))}
-
             </div>
         </div>
     );
