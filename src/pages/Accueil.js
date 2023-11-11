@@ -1,14 +1,16 @@
 import React from 'react';
-import CardCocktail from '../components/CardCocktail';
+import CardCocktail from '../components/CardCocktail/CardCocktail';
+
+import cocktailEx from '../assets/example.jpg'
 
 const Accueil = () => {
     return (
         <div>
-            <h1>Accueil</h1>
             <CardCocktail
                 title="Titre de la carte"
                 text="Texte de la carte"
-                img="URL de l'image"
+                alcoholic="No Alcoholic"
+                img={cocktailEx}
             />
         </div>
     );
