@@ -4,11 +4,12 @@ import React, { useEffect } from 'react';
 import iconNoAlcohol from '../../assets/icons/no_alcohol.png';
 
 const CardCocktail = ({ title, img, alcoholic }) => {
-	
+  
   useEffect(() => {
-    function lazyLoad() {
-      var cardImage = document.querySelector('.card-image');
-      if (cardImage) {
+    setTimeout(() => {
+      var cardImages = document.querySelectorAll('.card-image');
+
+      cardImages.forEach(cardImage => {
         var image_url = cardImage.getAttribute('data-image-full');
         var contentImage = cardImage.querySelector('img');
 
@@ -18,23 +19,20 @@ const CardCocktail = ({ title, img, alcoholic }) => {
           cardImage.style.backgroundImage = 'url(' + image_url + ')';
           cardImage.classList.add('is-loaded');
         });
-      }
-    }
-
-    window.addEventListener('load', function () {
-      setTimeout(lazyLoad, 100);
-    });
+      });
+    }, 100);
   }, []);
 
   return (
-    <ul className="card-list">
+    <div className="col">
+
       <li className={`card ${alcoholic === 'Non alcoholic' ? 'non-alcoholic' : ''}`}>
         
-      {alcoholic === 'Alcoholic' ? (
-            <span className="alcoholic-label"></span>
-          ) : (
-              <img className="alcoholic-label" src={iconNoAlcohol} style={{ width: 40, height: 'auto' }} />
-          )}
+        {alcoholic === 'Alcoholic' ? (
+          <span className="alcoholic-label"></span>
+        ) : (
+          <img className="alcoholic-label" src={iconNoAlcohol} style={{ width: 40, height: 'auto' }} />
+        )}
 
         <a
           className="card-image"
@@ -55,7 +53,7 @@ const CardCocktail = ({ title, img, alcoholic }) => {
           <h5>{title}</h5>
         </a>
       </li>
-    </ul>
+    </div>
   );
 };
 
