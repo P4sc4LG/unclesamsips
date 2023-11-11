@@ -19,7 +19,7 @@ function useCocktail(nameCocktail) {
                 cocktailsData.push(...data.drinks);
             }
         }
-        }else{
+        } else {
             const response = await fetch(
                 apiUrl,
             );
