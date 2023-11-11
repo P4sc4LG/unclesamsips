@@ -1,9 +1,9 @@
 import React from 'react';
-import CardCocktail from '../../components/CardCocktail/CardCocktail';
+import CardCocktail from '@/components/public/CardCocktail/CardCocktail';
 
-import useCocktail from '../../hooks/useCocktail';
+import useCocktail from '@/hooks/useCocktail';
 
-import cocktailEx from '../../assets/example.jpg'
+import cocktailEx from '@/assets/example.jpg'
 
 const Accueil = () => {
 
