@@ -6,7 +6,7 @@ import iconNoAlcohol from '../../assets/icons/no_alcohol.png';
 const CardCocktail = ({ title, img, alcoholic }) => {
 	
   useEffect(() => {
-    function lazyLoad() {
+    setTimeout(100);
       var cardImage = document.querySelector('.card-image');
       if (cardImage) {
         var image_url = cardImage.getAttribute('data-image-full');
@@ -19,11 +19,6 @@ const CardCocktail = ({ title, img, alcoholic }) => {
           cardImage.classList.add('is-loaded');
         });
       }
-    }
-
-    window.addEventListener('load', function () {
-      setTimeout(lazyLoad, 100);
-    });
   }, []);
 
   return (
