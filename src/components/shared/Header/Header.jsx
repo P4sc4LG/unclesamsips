@@ -1,9 +1,9 @@
 import React from 'react';
 import './header.css';
 
-import logo from '../../assets/logo.png';
-import UserIcon from '../../assets/icons/user_icon.png';
-import { Label, Toggle } from '../index';
+import logo from '@/assets/logo.png';
+import UserIcon from '@/assets/icons/user_icon.png';
+import { Label, Toggle } from '../../index';
 
 
 import Container from 'react-bootstrap/Container';
@@ -26,7 +26,7 @@ const Header = () => {
           <Nav className="ms-auto">
             <div class="vr me-4"></div>
             <Nav.Item style={{ paddingTop: '0.3em' }}><Toggle /></Nav.Item>
-            <Link to='/' ><Nav.Item style={{ marginLeft: '1.5em' }}><img src={UserIcon} alt="User" style={{ width: 30, height: 30 }} /></Nav.Item></Link>
+            <Link to='/admin/dashboard' ><Nav.Item style={{ marginLeft: '1.5em' }}><img src={UserIcon} alt="User" style={{ width: 30, height: 30 }} /></Nav.Item></Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

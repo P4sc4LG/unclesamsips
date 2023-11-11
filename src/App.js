@@ -2,8 +2,12 @@ import './App.css';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { Accueil, ExemplePage } from './pages/'
-import Layout from './pages/Layout';
+import Layout from './pages/Public/Layout';
+import AdminRouter from '@/pages/Admin/AdminRouter';
+import PublicRouter from '@/pages/Public/PublicRouter';
+
+import AuthRouter from '@/pages/Admin/Auth/AuthRouter';
+import AuthGuard from '@/_helpers/AuthGuard';
 
 function App() {
   return (
@@ -11,9 +15,14 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<Layout />}>
-            <Route index element={<Accueil />} />
-            <Route path="/accueil" element={<Accueil />} />
-            <Route path="/exemple" element={<ExemplePage />} />
+            <Route path='/*' element={<PublicRouter />} />
+            <Route path='/admin/*' element={
+              <AuthGuard>
+                <AdminRouter />
+              </AuthGuard>
+            } />
+            <Route path='/auth/*' element={<AuthRouter />} />
+
           </Route>
         </Routes>
       </BrowserRouter>

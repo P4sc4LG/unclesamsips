@@ -1,7 +1,7 @@
 import './CardCocktail.css';
 
 import React, { useEffect } from 'react';
-import iconNoAlcohol from '../../assets/icons/no_alcohol.png';
+import iconNoAlcohol from '@/assets/icons/no_alcohol.png';
 
 const CardCocktail = ({ title, img, alcoholic }) => {
   
