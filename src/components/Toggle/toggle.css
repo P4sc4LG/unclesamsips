@@ -39,11 +39,11 @@
   }
   
   input:checked + .slider {
-    background-color: rgba(252, 249, 69, 0.8);
+    background-color: #FFDF2B;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px rgba(252, 249, 69, 0.8);
+    box-shadow: 0 0 1px #FFDF2B;
   }
   
   input:checked + .slider:before {

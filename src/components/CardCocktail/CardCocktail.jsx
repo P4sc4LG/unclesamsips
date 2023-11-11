@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
-import iconNoAlcohol from '../../assets/icons/no_alcohol.png';
 import './CardCocktail.css';
 
-const CardCocktail = ({ title, text, img, alcoholic }) => {
+import React, { useEffect } from 'react';
+import iconNoAlcohol from '../../assets/icons/no_alcohol.png';
+
+const CardCocktail = ({ title, img, alcoholic }) => {
 	
   useEffect(() => {
     function lazyLoad() {
@@ -33,7 +34,6 @@ const CardCocktail = ({ title, text, img, alcoholic }) => {
             <span className="alcoholic-label"></span>
           ) : (
               <img className="alcoholic-label" src={iconNoAlcohol} style={{ width: 40, height: 'auto' }} />
-            //<span className="non-alcoholic-label">Logo Non-Alcoholic</span>
           )}
 
         <a
