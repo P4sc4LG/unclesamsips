@@ -9,7 +9,7 @@ function useCocktail(nameCocktail) {
   useEffect(() => {
     async function fetchCocktails() {
       try {
-        const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+        const alphabet = 'w';
         const cocktailsData = [];
         if(!nameCocktail){
             for (const letter of alphabet) {
@@ -34,25 +34,19 @@ function useCocktail(nameCocktail) {
     fetchCocktails();
   }, [nameCocktail,apiUrl]);
 
-  function fetchCocktailById(id){
-      const fetchData = async() => {
-        const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
-        const data = await response.json();
-  
-        return data.drinks[0];
-      };
-    return fetchData();
+  async function fetchCocktailById(id){
+    const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
+    const data = await response.json();
+    return data.drinks[0];
   }
 
-  function fetchRandomCocktail(){
-    const fetchData = async() => {
-      const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php');
-      const data = await response.json();
-     
-      return data.drinks[0];
-    };
-    return fetchData();
+  async function fetchRandomCocktail(){
+    const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php');
+    const data = await response.json();
+    return data.drinks[0];
   }
-  return {cocktails, fetchCocktailById, fetchRandomCocktail};
+  
+  return { cocktails, fetchCocktailById, fetchRandomCocktail };
 }
+
 export default useCocktail;
