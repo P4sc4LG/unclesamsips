@@ -4,6 +4,14 @@ npm install
 
 npm run init-storybook
 
+You have to start the API Rest :
+https://github.com/gwentey/2023-perso-api-rest-express
+
+npm install 
+npm run start
+
+(don't forget to 8000)
+
 test
 # Getting Started with Create React App
 
