@@ -20,7 +20,7 @@ const Accueil = () => {
     const filteredCocktails = cocktails.filter(cocktail =>
         cocktail.strDrink.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    
+    console.log(filteredCocktails);
     // Function to divide cocktail into 3 group of cocktail
     const chunkArray = (arr, chunkSize) => {
         const result = [];
@@ -30,6 +30,9 @@ const Accueil = () => {
         return result;
     };
 
+    // Function to change page 
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
     // Index for pagination
     const indexOfLastCocktail = currentPage * cocktailsPerPage;
     const indexOfFirstCocktail = indexOfLastCocktail - cocktailsPerPage;
@@ -37,8 +40,7 @@ const Accueil = () => {
 
     const chunkedCocktails = chunkArray(currentCocktails, 3);
 
-    // Function to change page 
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    
 
     // Generate number for pagination
     const totalPageCount = Math.ceil(filteredCocktails.length / cocktailsPerPage);
@@ -53,7 +55,12 @@ const Accueil = () => {
     return (
         <div>
             <Title content={'Cocktails'} color={'#FFDF2B'} />
-            <Search placeholder="Rechercher un cocktail..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
+            <Search placeholder="Rechercher un cocktail..." value={searchTerm} onChange={
+                (e) => 
+                {setSearchTerm(e.target.value)
+                setCurrentPage(1);
+                }
+                }/>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <div>
                     <table>
