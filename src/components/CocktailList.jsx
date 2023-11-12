@@ -13,6 +13,7 @@ function CocktailList() {
         console.error('Erreur lors de la recherche du cocktail par ID :', error);
     }
   };
+  console.log(cocktailRandom());
   const cocktailById = async (id) => {
     try{
         const result = await fetchCocktailById(id);
