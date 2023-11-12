@@ -21,10 +21,10 @@ const Header = () => {
           <Nav className="me-auto">
             <Link to='/' className="text-decoration-none col px-md-3 yellow-police "><Nav.Item><Label content={"Cocktails"} /></Nav.Item></Link>
             <Link to='/exemple' className="text-decoration-none col px-md-3 yellow-police" ><Nav.Item><Label content={"Ingrédients"} /></Nav.Item></Link>
-            <Link to='/exemple' className="text-decoration-none col px-md-3 yellow-police" ><Nav.Item><Label content={"Cock'Random"} /></Nav.Item></Link>
+            <Link to='/cocktail/random' className="text-decoration-none col px-md-3 yellow-police" ><Nav.Item><Label content={"Cock'Random"} /></Nav.Item></Link>
           </Nav>
           <Nav className="ms-auto">
-            <div class="vr me-4"></div>
+            <div className="vr me-4"></div>
             <Nav.Item style={{ paddingTop: '0.3em' }}><Toggle /></Nav.Item>
             <Link to='/admin/dashboard' ><Nav.Item style={{ marginLeft: '1.5em' }}><img src={UserIcon} alt="User" style={{ width: 30, height: 30 }} /></Nav.Item></Link>
           </Nav>

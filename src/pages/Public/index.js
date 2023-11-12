@@ -1,4 +1,5 @@
 // page used for export pages
 export { default as Accueil } from './Accueil/Accueil'
 export { default as ExemplePage } from './ExemplePage/ExemplePage'
+export { default as RandomCocktail } from './RandomCocktail/RandomCocktail'
 export { default as Layout } from './Layout'
