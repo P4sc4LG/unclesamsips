@@ -18,7 +18,8 @@ function useCocktail(nameCocktail) {
             if (data.drinks) {
                 cocktailsData.push(...data.drinks);
             }
-        }
+            await new Promise(resolve => setTimeout(resolve, 350));
+            }
         }else{
             const response = await fetch(
                 apiUrl,
