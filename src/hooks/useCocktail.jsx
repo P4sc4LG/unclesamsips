@@ -9,7 +9,7 @@ function useCocktail(nameCocktail) {
   useEffect(() => {
     async function fetchCocktails() {
       try {
-        const alphabet = 'w';
+        const alphabet = 'abcdefghijklmnopqrstuvwxyz';
         const cocktailsData = [];
         if(!nameCocktail){
             for (const letter of alphabet) {

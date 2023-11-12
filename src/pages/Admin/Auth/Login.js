@@ -42,7 +42,7 @@ const Login = () => {
                 <input type="password" name="password" value={credentials.password} onChange={onChange}/>
             </div>
             <div className='group'>
-                <button>Connexion</button>
+                <button className='connexion'>Connexion</button>
             </div>
         </form>
     );
