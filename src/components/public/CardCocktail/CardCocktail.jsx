@@ -52,6 +52,7 @@ const CardCocktail = ({ uid, title, img, alcoholic }) => {
             target="_blank"
           >
             <h5>{title}</h5>
+            <p>{}</p>
           </a>
         </li>
       </div>
