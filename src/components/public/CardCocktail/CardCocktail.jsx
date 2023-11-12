@@ -2,9 +2,10 @@ import './CardCocktail.css';
 
 import React, { useEffect } from 'react';
 import iconNoAlcohol from '@/assets/icons/no_alcohol.png';
+import { Link } from 'react-router-dom';
 
-const CardCocktail = ({ title, img, alcoholic }) => {
-  
+const CardCocktail = ({ uid, title, img, alcoholic }) => {
+
   useEffect(() => {
     setTimeout(() => {
       var cardImages = document.querySelectorAll('.card-image');
@@ -24,36 +25,37 @@ const CardCocktail = ({ title, img, alcoholic }) => {
   }, []);
 
   return (
-    <div className="col">
+    <Link to={`/cocktail/show/${uid}`}>
 
-      <li className={`card ${alcoholic === 'Non alcoholic' ? 'non-alcoholic' : ''}`}>
-        
-        {alcoholic === 'Alcoholic' ? (
-          <span className="alcoholic-label"></span>
-        ) : (
-          <img className="alcoholic-label" src={iconNoAlcohol} style={{ width: 40, height: 'auto' }} />
-        )}
+      <div className="col">
 
-        <a
-          className="card-image"
-          href={img}
-          target="_blank"
-          style={{
-            backgroundImage: `url(${img})`,
-          }}
-          data-image-full={img}
-        >
-          <img src={img} alt={title} />
-        </a>
-        <a
-          className="card-description"
-          href={img}
-          target="_blank"
-        >
-          <h5>{title}</h5>
-        </a>
-      </li>
-    </div>
+        <li className={`card ${alcoholic === 'Non alcoholic' ? 'non-alcoholic' : ''}`}>
+
+          {alcoholic === 'Alcoholic' ? (
+            <span className="alcoholic-label"></span>
+          ) : (
+            <img className="alcoholic-label" src={iconNoAlcohol} style={{ width: 40, height: 'auto' }} />
+          )}
+
+          <a
+            className="card-image"
+            target="_blank"
+            style={{
+              backgroundImage: `url(${img})`,
+            }}
+            data-image-full={img}
+          >
+            <img src={img} alt={title} />
+          </a>
+          <a
+            className="card-description"
+            target="_blank"
+          >
+            <h5>{title}</h5>
+          </a>
+        </li>
+      </div>
+    </Link>
   );
 };
 

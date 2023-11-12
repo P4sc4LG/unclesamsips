@@ -15,6 +15,7 @@ const Accueil = () => {
                 {cocktails.map(cocktail => (
                     <CardCocktail
                         key={cocktail.idDrink}
+                        uid={cocktail.idDrink}
                         title={cocktail.strDrink}
                         text={cocktail.strInstructions}
                         alcoholic={cocktail.strAlcoholic}
