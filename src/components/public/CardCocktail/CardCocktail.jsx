@@ -8,15 +8,14 @@ const CardCocktail = ({ title, img, alcoholic }) => {
   useEffect(() => {
     setTimeout(() => {
       var cardImages = document.querySelectorAll('.card-image');
-
       cardImages.forEach(cardImage => {
         var image_url = cardImage.getAttribute('data-image-full');
         var contentImage = cardImage.querySelector('img');
 
         contentImage.src = image_url;
-
+        
         contentImage.addEventListener('load', function () {
-          cardImage.style.backgroundImage = 'url(' + image_url + ')';
+          cardImage.style.backgroundImage = 'url(' + contentImage.src + ')';
           cardImage.classList.add('is-loaded');
         });
       });

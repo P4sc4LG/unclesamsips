@@ -51,7 +51,7 @@ const Accueil = () => {
     const displayedPageNumbers = pages.slice(startIndex, endIndex + 1);
 
     return (
-        <div>
+        <div style={{paddingBottom:'2em'}}>
             <Title content={'Cocktails'} color={'#FFDF2B'} />
             <Search placeholder="Rechercher un cocktail..." value={searchTerm} onChange={(e) => 
                 {
