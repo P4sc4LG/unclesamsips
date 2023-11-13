@@ -51,13 +51,12 @@ const Accueil = () => {
     const displayedPageNumbers = pages.slice(startIndex, endIndex + 1);
 
     return (
-        <div style={{paddingBottom:'2em'}}>
+        <div style={{ paddingBottom: '2em' }}>
             <Title content={'Cocktails'} color={'#FFDF2B'} />
-            <Search placeholder="Rechercher un cocktail..." value={searchTerm} onChange={(e) => 
-                {
-                    setSearchTerm(e.target.value)
-                    setCurrentPage(1);
-                }} />
+            <Search placeholder="Rechercher un cocktail..." value={searchTerm} onChange={(e) => {
+                setSearchTerm(e.target.value)
+                setCurrentPage(1);
+            }} />
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <div>
                     <table>
@@ -67,6 +66,8 @@ const Accueil = () => {
                                     {row.map((col, colIndex) => (
                                         <td key={colIndex}>
                                             <CardCocktail
+                                                key={col.idDrink}
+                                                uid={col.idDrink}
                                                 title={col.strDrink}
                                                 text="Texte de la carte"
                                                 alcoholic={col.strAlcoholic}
@@ -81,7 +82,7 @@ const Accueil = () => {
                     <div>
                         {displayedPageNumbers.map((pageNumber) => (
                             <button key={pageNumber} className={`pagination-number ${currentPage === pageNumber ? 'pagination-active' : ''}`}
-                                onClick={() => {paginate(pageNumber)}}>
+                                onClick={() => { paginate(pageNumber) }}>
                                 {pageNumber}
                             </button>
                         ))}
