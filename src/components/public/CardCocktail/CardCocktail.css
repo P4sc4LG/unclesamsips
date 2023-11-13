@@ -1,17 +1,17 @@
 /* Lazy Load Styles */
 .card-image {
 	display: block;
-	max-height: 15rem; 
+	max-height: 15rem;
 	background: #fff center center no-repeat;
 	background-size: cover;
 	filter: blur(3px);
 }
 
-.card-image > img {
+.card-image>img {
 	display: block;
 	width: 100%;
 	opacity: 0;
-    
+
 }
 
 .card-image.is-loaded {
@@ -21,7 +21,8 @@
 
 
 /* Layout Styles */
-html, body {
+html,
+body {
 	width: 100%;
 	height: 100%;
 	margin: 0;
@@ -46,13 +47,13 @@ html, body {
 	font-size: 1rem;
 	text-decoration: none;
 	overflow: hidden;
-	box-shadow: 0 0 3rem -1rem rgba(0,0,0,0.5);
+	box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, 0.5);
 	transition: transform 0.1s ease-in-out, box-shadow 0.1s;
 }
 
 .card:hover {
 	transform: translateY(-0.5rem) scale(1.0125);
-	box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
+	box-shadow: 0 0.5em 3rem -1rem rgba(0, 0, 0, 0.5);
 }
 
 .card-description {
@@ -62,25 +63,29 @@ html, body {
 	text-decoration: none;
 }
 
-.card-description > h2 {
+.card-description>h2 {
 	margin: 0 0 0.5em;
 }
 
-.card-description > p {
+.card-description>p {
 	margin: 0;
 }
 
 .card {
 	position: relative;
-  }
-  
-  .alcoholic-label,
-  .non-alcoholic-label {
+}
+
+.alcoholic-label,
+.non-alcoholic-label {
 	position: absolute;
 	top: 0;
 	right: 0;
-	color: #fff; 
+	color: #fff;
 	padding: 5px;
 	font-size: 12px;
 	border-radius: 3px;
-  }
+}
+
+a:-webkit-any-link {
+	text-decoration: none;
+}
