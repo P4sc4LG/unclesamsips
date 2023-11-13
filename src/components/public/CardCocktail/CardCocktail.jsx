@@ -1,10 +1,26 @@
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { usePalette } from 'color-thief-react';
+import Color from 'color';
+import iconNoAlcohol from '@/assets/icons/no_alcohol.png';
 import './CardCocktail.css';
 
-import { Link } from 'react-router-dom';
-import React, { useEffect } from 'react';
-import iconNoAlcohol from '@/assets/icons/no_alcohol.png';
-
 const CardCocktail = ({ uid, title, img, alcoholic }) => {
+  // Utilisation du hook usePalette
+  const { data: paletteData, loading: paletteLoading } = usePalette(img || '', 4, 'hex', {
+    crossOrigin: 'anonymous',
+  });
+
+  // Création du style pour le fond de dégradé
+  const gradientStyle = {
+    background: paletteData
+      ? `linear-gradient(to bottom right, 
+          rgba(${Color(paletteData[0]).array().join(', ')}, 0.5), 
+          rgba(${Color(paletteData[1]).array().join(', ')}, 0.5), 
+          rgba(${Color(paletteData[2]).array().join(', ')}, 0.5), 
+          rgba(${Color(paletteData[3]).array().join(', ')}, 0.5))`
+      : 'white',
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -24,19 +40,14 @@ const CardCocktail = ({ uid, title, img, alcoholic }) => {
   }, []);
 
   return (
-
     <Link to={`/cocktail/show/${uid}`}>
-
       <div className="col">
-
-        <li className={`card ${alcoholic === 'Non alcoholic' ? 'non-alcoholic' : ''}`}>
-
+        <li className={`card ${alcoholic === 'Non alcoholic' ? 'non-alcoholic' : ''}`} style={gradientStyle}>
           {alcoholic === 'Alcoholic' ? (
             <span className="alcoholic-label"></span>
           ) : (
             <img className="alcoholic-label" src={iconNoAlcohol} style={{ width: 40, height: 'auto' }} />
           )}
-
           <a
             className="card-image"
             href={img}
@@ -48,17 +59,12 @@ const CardCocktail = ({ uid, title, img, alcoholic }) => {
           >
             <img src={img} alt={title} />
           </a>
-          <a
-            className="card-description"
-            href={img}
-            target="_blank"
-          >
+          <a className="card-description" href={img} target="_blank">
             <h5>{title}</h5>
           </a>
         </li>
       </div>
     </Link>
-
   );
 };
 
