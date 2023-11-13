@@ -20,7 +20,7 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Link to='/' className="text-decoration-none col px-md-3 yellow-police "><Nav.Item><Label content={"Cocktails"} /></Nav.Item></Link>
-            <Link to='/exemple' className="text-decoration-none col px-md-3 yellow-police" ><Nav.Item><Label content={"Ingrédients"} /></Nav.Item></Link>
+            <Link to='/ingredients' className="text-decoration-none col px-md-3 yellow-police" ><Nav.Item><Label content={"Ingrédients"} /></Nav.Item></Link>
             <Link to='/cocktail/random' className="text-decoration-none col px-md-3 yellow-police" ><Nav.Item><Label content={"Cock'Random"} /></Nav.Item></Link>
           </Nav>
           <Nav className="ms-auto">
