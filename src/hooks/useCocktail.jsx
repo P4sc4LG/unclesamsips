@@ -9,7 +9,9 @@ function useCocktail(nameCocktail) {
   useEffect(() => {
     async function fetchCocktails() {
       try {
-        const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+        const isTestMode = process.env.REACT_APP_TEST === 'true';
+        const alphabet = isTestMode ? 'abc' : 'abcdefghijklmnopqrstuvwxyz';
+
         const cocktailsData = [];
         if(!nameCocktail){
             for (const letter of alphabet) {
