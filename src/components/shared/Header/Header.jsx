@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <Navbar expand="lg" className="bg-white" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',marginBottom:'1.5em' }}>
+    <Navbar expand="lg" className="bg-white" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
       <Container>
         <Link to='/'><img style={{ width: 350, marginRight: '5em' }} src={logo} alt="logo" /></Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
