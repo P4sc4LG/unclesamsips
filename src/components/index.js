@@ -7,6 +7,8 @@ export { default as Title } from './shared/Title/Title'
 export { default as Search } from './shared/Search/Search'
 export { default as Instruction } from './public/Instruction/Instruction'
 export { default as Toggle } from './shared/Toggle/Toggle'
+export { default as AHeader } from './admin/AHeader/AHeader'
+export { default as SideMenu } from './admin/SideMenu/SideMenu'
 
 
 
