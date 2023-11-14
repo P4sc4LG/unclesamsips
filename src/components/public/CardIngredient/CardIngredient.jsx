@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { usePalette } from 'color-thief-react';
 import Color from 'color';
-import './cardIngredient.css';
+import './CardIngredient.css';
 
 const CardIngredient = ({ ingredientId, ingredientName }) => {
   const { data: paletteData } = usePalette(
