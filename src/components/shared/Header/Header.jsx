@@ -3,10 +3,8 @@ import './Header.css';
 
 import logo from '@/assets/logo.png';
 import UserIcon from '@/assets/icons/user_icon.png';
-import { Label, Toggle } from '../../index';
+import { Label, ProfileDropdown, Toggle } from '../../index';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
-
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -26,15 +24,8 @@ const Header = () => {
           </Nav>
           <Nav className="ms-auto">
             <div className="vr me-4"></div>
-            <Nav.Item style={{ paddingTop: '1em', paddingRight:'1em' }}><Toggle /></Nav.Item>
-            <NavDropdown title={<img src={UserIcon} alt="User" style={{ width: 30, height: 30 }} />} id="nav-dropdown" drop="down">
-            <NavDropdown.Item as={Link} to="/admin/dashboard">
-                Administration
-              </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/admin/dashboard">
-                Se déconnecter
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Item style={{ paddingTop: '1em', paddingRight: '1em' }}><Toggle /></Nav.Item>
+            <ProfileDropdown></ProfileDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
