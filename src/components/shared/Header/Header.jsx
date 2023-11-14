@@ -1,9 +1,10 @@
 import React from 'react';
-import './header.css';
+import './Header.css';
 
 import logo from '@/assets/logo.png';
 import UserIcon from '@/assets/icons/user_icon.png';
 import { Label, Toggle } from '../../index';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
 import Container from 'react-bootstrap/Container';
@@ -25,8 +26,12 @@ const Header = () => {
           </Nav>
           <Nav className="ms-auto">
             <div className="vr me-4"></div>
-            <Nav.Item style={{ paddingTop: '0.3em' }}><Toggle /></Nav.Item>
-            <Link to='/admin/dashboard' ><Nav.Item style={{ marginLeft: '1.5em' }}><img src={UserIcon} alt="User" style={{ width: 30, height: 30 }} /></Nav.Item></Link>
+            <Nav.Item style={{ paddingTop: '1em' }}><Toggle /></Nav.Item>
+            <NavDropdown title={<img src={UserIcon} alt="User" style={{ width: 30, height: 30 }} />} id="nav-dropdown" drop="down">
+              <NavDropdown.Item as={Link} to="/admin/dashboard">
+                Your Dropdown Item
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>

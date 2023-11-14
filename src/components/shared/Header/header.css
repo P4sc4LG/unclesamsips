@@ -2,3 +2,8 @@
     color: #FFDF2B;
     text-transform: uppercase;
 }
+
+.dropdown-menu.show {
+    margin-right: -250%;
+  }
+  
