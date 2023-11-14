@@ -51,7 +51,7 @@ const Ingredients = () => {
 
     return (
         <div style={{ paddingBottom: '2em'}} className={`${darkMode ? 'body-dark' : 'body-light'}`}>
-            <Title content={'Ingredients'} color={'#FFDF2B'} />
+            <Title content={'Ingrédients'} color={'#FFDF2B'} />
             <Search placeholder="Rechercher un ingrédient..." value={searchTerm} onChange={(e) => {
                 setSearchTerm(e.target.value);
                 setCurrentPage(1);
