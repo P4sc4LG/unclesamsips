@@ -2,10 +2,6 @@
     display:flex;
 }
 
-.SideMenu { 
-    flex-grow: 1;
-    border-right: solid 1px grey;
-}
 
 #admin_body {
     flex-grow: 6;

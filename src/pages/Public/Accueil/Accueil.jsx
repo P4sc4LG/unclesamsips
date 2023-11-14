@@ -88,10 +88,8 @@ const Accueil = () => {
                                     {row.map((col, colIndex) => (
                                         <td key={colIndex}>
                                             <CardCocktail
-                                                key={col.idDrink}
                                                 uid={col.idDrink}
                                                 title={col.strDrink}
-                                                text="Texte de la carte"
                                                 alcoholic={col.strAlcoholic}
                                                 img={col.strDrinkThumb}
                                             />

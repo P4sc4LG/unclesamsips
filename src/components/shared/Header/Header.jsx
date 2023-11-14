@@ -3,9 +3,8 @@ import './header.css';
 
 import logo from '@/assets/logo.png';
 import UserIcon from '@/assets/icons/user_icon.png';
-import { Label, Toggle } from '../../index';
-
-
+import { Label, ProfileDropdown, Toggle } from '../../index';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -27,9 +26,9 @@ const Header = () => {
             <Link to='/cocktail/random' className="text-decoration-none col px-md-3 yellow-police" ><Nav.Item><Label content={"Cock'Random"} /></Nav.Item></Link>
           </Nav>
           <Nav className="ms-auto">
-            <div className="vr me-4" style={{ backgroundColor:'#FFDF2B'}}></div>
-            <Nav.Item style={{ paddingTop: '0.3em' }}><Toggle /></Nav.Item>
-            <Link to='/admin/dashboard' ><Nav.Item style={{ marginLeft: '1.5em' }}><img src={UserIcon} alt="User" style={{ width: 30, height: 30 }} /></Nav.Item></Link>
+            <div className="vr me-4"></div>
+            <Nav.Item style={{ paddingTop: '1em', paddingRight: '1em' }}><Toggle /></Nav.Item>
+            <ProfileDropdown></ProfileDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
