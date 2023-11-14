@@ -33,7 +33,6 @@ function useIngredient(ingredientName) {
   
 
   async function fetchIngredientById(id) {
-    console.log("ICIIIIIII" + id)
     const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=${id}`);
     const data = await response.json();
     return data.ingredients[0];
