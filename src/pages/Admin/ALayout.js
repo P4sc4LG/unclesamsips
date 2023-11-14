@@ -8,7 +8,6 @@ import { AHeader, SideMenu } from '@/components/'
 const ALayout = () => {
     return (
         <div className='Layout'>
-            <AHeader />
             <div id="admin">
                 <SideMenu />
                 <div id="admin_body">
