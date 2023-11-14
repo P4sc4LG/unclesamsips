@@ -4,7 +4,6 @@ import useCocktail from '@/hooks/useCocktail';
 import Title from '@/components/shared/Title/Title';
 import Search from '@/components/shared/Search/Search';
 import './accueil.css';
-import CocktailList from '@/components/CocktailList';
 import Loading from '@/components/shared/Loading/Loading';
 
 
