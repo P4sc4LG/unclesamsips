@@ -2,16 +2,18 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { usePalette } from 'color-thief-react';
 import Color from 'color';
-import iconNoAlcohol from '@/assets/icons/no_alcohol.png';
-import './CardCocktail.css';
+import './cardIngredient.css';
 
-const CardCocktail = ({ uid, title, img, alcoholic }) => {
-  // Utilisation du hook usePalette
-  const { data: paletteData, loading: paletteLoading } = usePalette(img || '', 4, 'hex', {
-    crossOrigin: 'anonymous',
-  });
+const CardIngredient = ({ ingredientId, ingredientName }) => {
+  const { data: paletteData } = usePalette(
+    `https://www.thecocktaildb.com/images/ingredients/${ingredientName}.png`,
+    4,
+    'hex',
+    {
+      crossOrigin: 'anonymous',
+    }
+  );
 
-  // Création du style pour le fond de dégradé
   const gradientStyle = {
     background: paletteData
       ? `linear-gradient(to bottom right, 
@@ -40,27 +42,29 @@ const CardCocktail = ({ uid, title, img, alcoholic }) => {
   }, []);
 
   return (
-    <Link to={`/cocktail/show/${uid}`}>
+    <Link to={`/ingredient/show/${ingredientId}`}>
       <div className="col">
-        <li className={`card ${alcoholic === 'Non alcoholic' ? 'non-alcoholic' : ''}`} style={gradientStyle}>
-          {alcoholic === 'Alcoholic' ? (
-            <span className="alcoholic-label"></span>
-          ) : (
-            <img className="alcoholic-label" src={iconNoAlcohol} style={{ width: 40, height: 'auto' }} />
-          )}
+        <li className="card" style={gradientStyle}>
           <a
             className="card-image"
-            href={img}
+            href={`https://www.thecocktaildb.com/images/ingredients/${ingredientName}.png`}
             target="_blank"
             style={{
-              backgroundImage: `url(${img})`,
+              backgroundImage: `url(https://www.thecocktaildb.com/images/ingredients/${ingredientName}.png)`,
             }}
-            data-image-full={img}
+            data-image-full={`https://www.thecocktaildb.com/images/ingredients/${ingredientName}.png`}
           >
-            <img src={img} alt={title} />
+            <img
+              src={`https://www.thecocktaildb.com/images/ingredients/${ingredientName}.png`}
+              alt={ingredientName}
+            />
           </a>
-          <a className="card-description" href={img} target="_blank">
-            <h5>{title}</h5>
+          <a
+            className="card-description"
+            href={`https://www.thecocktaildb.com/images/ingredients/${ingredientName}.png`}
+            target="_blank"
+          >
+            <h5>{ingredientName}</h5>
           </a>
         </li>
       </div>
@@ -68,4 +72,4 @@ const CardCocktail = ({ uid, title, img, alcoholic }) => {
   );
 };
 
-export default CardCocktail;
+export default CardIngredient;

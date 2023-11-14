@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'
 
-import { Accueil, ExemplePage, RandomCocktail, Cocktail } from './'
+import { Accueil, Ingredients, RandomCocktail, Cocktail } from './'
 import Error from '@/_utils/Error'
 
 const PublicRouter = () => {
@@ -9,7 +9,7 @@ const PublicRouter = () => {
         <Routes>
             <Route index element={<Accueil />} />
             <Route path="/accueil" element={<Accueil />} />
-            <Route path="/exemple" element={<ExemplePage />} />
+            <Route path="/ingredients" element={<Ingredients />} />
             <Route path="cocktail">
                 <Route path="random" element={<RandomCocktail />} />
                 <Route path="show/:uid" element={<Cocktail />} />

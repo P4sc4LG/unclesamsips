@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { usePalette } from 'color-thief-react';
 import Color from 'color';
+import Card from 'react-bootstrap/Card';
 
 import './cocktail.css';
 
 import useCocktail from '@/hooks/useCocktail';
+import { Instruction, Label } from '@/components';
+import { Col, Row } from 'react-bootstrap';
 
 const Loading = () => <div>Loading...</div>;
 
@@ -39,10 +42,10 @@ const Cocktail = () => {
     const gradientStyle = {
         background: paletteData
             ? `linear-gradient(to bottom right, 
-              rgba(${Color(paletteData[0]).array().join(', ')}, 0.4), 
-              rgba(${Color(paletteData[1]).array().join(', ')}, 0.4), 
-              rgba(${Color(paletteData[2]).array().join(', ')}, 0.4), 
-              rgba(${Color(paletteData[3]).array().join(', ')}, 0.4))`
+              rgba(${Color(paletteData[0]).array().join(', ')}, 0.5), 
+              rgba(${Color(paletteData[1]).array().join(', ')}, 0.5), 
+              rgba(${Color(paletteData[2]).array().join(', ')}, 0.5), 
+              rgba(${Color(paletteData[3]).array().join(', ')}, 0.5))`
             : 'white',
         height: '100vh',
         display: 'flex',
@@ -54,33 +57,46 @@ const Cocktail = () => {
 
 
     return (
-        <div style={gradientStyle}>
-            <h1>{cocktail.strDrink}</h1>
-            {cocktail.strDrinkThumb && <img style={{ width: 150, height: 150 }} src={cocktail.strDrinkThumb} alt='' />}
 
-            {cocktail.strDrinkThumb && (
-                <div>
-                    {paletteLoading ? (
-                        <Loading />
-                    ) : (
-                        <div>
-                            {paletteData && paletteData.length > 0 && (
-                                <div>
-                                    <h2>Palette de couleurs:</h2>
-                                    <ul>
-                                        {paletteData.map((color, index) => (
-                                            <li key={index} style={{ color: color }}>
-                                                <strong>{color}</strong>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
-                        </div>
-                    )}
-                </div>
-            )}
+        <div style={gradientStyle}>
+
+            <Row className="align-items-center">
+                <Col>
+                    {cocktail.strDrinkThumb &&
+                        <img className='shadow bg-body-tertiary rounded'
+                            style={{ width: 350, height: 350 }}
+                            src={cocktail.strDrinkThumb} alt=''
+                        />
+                    }
+                </Col>
+                <Col>
+                    <Card>
+                        <Card.Body>
+                            <Card.Title>{cocktail.strDrink}</Card.Title>
+                        </Card.Body>
+                    </Card>
+
+                    <Card>
+                        <Card.Body>
+                            <Card.Text>
+                                {cocktail.strInstructions && (
+                                    <Instruction strInstructions={cocktail.strInstructions} />
+                                )}
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+
+                    <Card>
+                        <Card.Body>
+                            <Card.Text>
+                                <Label content="Les ingrédients"></Label>
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
         </div>
+
     );
 };
 

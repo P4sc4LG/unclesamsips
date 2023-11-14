@@ -3,13 +3,12 @@ import { Outlet } from 'react-router-dom';
 
 import './admin.css'
 
-import Header from '@/components/admin/Header'
-import SideMenu from '@/components/admin/SideMenu'
+import { AHeader, SideMenu } from '@/components/'
 
 const ALayout = () => {
     return (
         <div className='Layout'>
-            <Header />
+            <AHeader />
             <div id="admin">
                 <SideMenu />
                 <div id="admin_body">

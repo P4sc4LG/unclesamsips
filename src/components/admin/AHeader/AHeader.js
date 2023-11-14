@@ -2,7 +2,7 @@ import React from 'react';
 import { accountService } from '@/_services/account.service';
 import { useNavigate } from 'react-router-dom';
 
-const Header = () => {
+const AHeader = () => {
 
     let navigate = useNavigate();
 
@@ -19,4 +19,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default AHeader;
