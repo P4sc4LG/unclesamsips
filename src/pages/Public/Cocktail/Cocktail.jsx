@@ -5,9 +5,6 @@ import useCocktail from '../../../hooks/useCocktail';
 import {DarkModeContext} from '../../../context/DarkModeContext';
 import {ShowCocktail} from "../../../components/index";
 
-const Loading = () => <div>Loading...</div>;
-
-
 const Cocktail = () => {
     const {uid} = useParams();
     const {fetchCocktailById} = useCocktail();
