@@ -4,7 +4,6 @@ import useCocktail from '@/hooks/useCocktail';
 import Title from '@/components/shared/Title/Title';
 import Search from '@/components/shared/Search/Search';
 import './accueil.css';
-import CocktailList from '@/components/CocktailList';
 import Loading from '@/components/shared/Loading/Loading';
 
 
@@ -91,10 +90,8 @@ const Accueil = () => {
                                     {row.map((col, colIndex) => (
                                         <td key={colIndex}>
                                             <CardCocktail
-                                                key={col.idDrink}
                                                 uid={col.idDrink}
                                                 title={col.strDrink}
-                                                text="Texte de la carte"
                                                 alcoholic={col.strAlcoholic}
                                                 img={col.strDrinkThumb}
                                             />
