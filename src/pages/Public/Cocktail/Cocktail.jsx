@@ -1,11 +1,9 @@
-import React, { useEffect, useState,useContext } from 'react';
-import { useParams } from 'react-router-dom';
-
+import React, {useEffect, useState, useContext} from 'react';
+import {useParams} from 'react-router-dom';
 import './cocktail.css';
-
 import useCocktail from '../../../hooks/useCocktail';
-import { DarkModeContext } from '../../../context/DarkModeContext';
-import ShowCocktail from "../../../components/public/ShowCocktail/ShowCocktail";
+import {DarkModeContext} from '../../../context/DarkModeContext';
+import {ShowCocktail} from "../../../components/index";
 
 const Loading = () => <div>Loading...</div>;
 

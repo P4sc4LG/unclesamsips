@@ -1,7 +1,7 @@
 import React from 'react';
 import {Col, Row} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
-import {Instruction, Label} from '../../../components/';
+import {Instruction, Label} from '../../index';
 import {usePalette} from "color-thief-react";
 import Color from "color";
 

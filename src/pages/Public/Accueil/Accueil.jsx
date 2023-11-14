@@ -1,12 +1,8 @@
-import React, { useEffect, useState, useContext } from 'react';
-import CardCocktail from '../../../components/public/CardCocktail/CardCocktail';
+import React, {useEffect, useState, useContext} from 'react';
+import {CardCocktail, Title, Search, Loading} from '../../../components/index';
 import useCocktail from '../../../hooks/useCocktail';
-import Title from '../../../components/shared/Title/Title';
-import Search from '../../../components/shared/Search/Search';
 import './accueil.css';
-import Loading from '../../../components/shared/Loading/Loading';
-import { DarkModeContext } from '../../../context/DarkModeContext';
-
+import {DarkModeContext} from '../../../context/DarkModeContext';
 
 const Accueil = () => {
 
@@ -15,19 +11,19 @@ const Accueil = () => {
     const [isLoading, setIsLoading] = useState();
     const {darkMode} = useContext(DarkModeContext);
 
-    useEffect(() => {     
+    useEffect(() => {
             async function fetchCocktail() {
                 setIsLoading(false);
                 try {
                     const cocktail = await fetchCocktails();
-                    setCocktails(cocktail);    
+                    setCocktails(cocktail);
                     setIsLoading(true);
                 } catch (error) {
                     console.error('Erreur lors de la récupération du cocktail:', error);
                     setIsLoading(true);
                 }
             }
-            fetchCocktail();  
+            fetchCocktail();
     }, []);
 
     //For pagination & cocktail
@@ -41,7 +37,7 @@ const Accueil = () => {
     const filteredCocktails = cocktails.filter(cocktail =>
         cocktail.strDrink.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    
+
     // Function to divide cocktail into 3 group of cocktail
     const chunkArray = (arr, chunkSize) => {
         const result = [];
@@ -70,9 +66,9 @@ const Accueil = () => {
     const endIndex = Math.min(totalPageCount - 1, startIndex + pagesToShow - 1);
 
     const displayedPageNumbers = pages.slice(startIndex, endIndex + 1);
-    
+
     return (
-             
+
             <div style={{ paddingBottom: '2em' }} className={`${darkMode ? 'body-dark' : 'body-light'}`} >
             <Title content={'Cocktails'} color={'#FFDF2B'} />
             <Search placeholder="Rechercher un cocktail..." value={searchTerm} onChange={(e) => {
@@ -111,8 +107,8 @@ const Accueil = () => {
             </div>
             }
         </div>
-       
- 
+
+
     );
 };
 

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import Label from '../Label/Label';
+import React, {useEffect, useState} from 'react';
+import {Label} from '../../index';
 import './Instruction.css';
 
 const Instruction = ({ strInstructions }) => {
