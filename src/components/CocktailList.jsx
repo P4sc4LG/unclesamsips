@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import useCocktail from '../hooks/useCocktail';
+import { Label, Toggle, Loading } from './index';;
 
 function CocktailList() {
   const {cocktails, fetchCocktailById, fetchRandomCocktail} = useCocktail('a') ; // Passer null pour obtenir tous les cocktails
@@ -8,12 +9,12 @@ function CocktailList() {
   const cocktailRandom = async () => {
     try{
         const result = await fetchRandomCocktail();
-        console.log(result);
+        //console.log(result);
     }catch(error){
         console.error('Erreur lors de la recherche du cocktail par ID :', error);
     }
   };
-  console.log(cocktailRandom());
+  //console.log(cocktailRandom());
   const cocktailById = async (id) => {
     try{
         const result = await fetchCocktailById(id);
@@ -26,6 +27,7 @@ function CocktailList() {
   //const test = FetchCocktailById(12333);
   return (
     <div>
+        <Loading/>
        <h2> cocktail selected </h2> 
        <h1>{cocktail}</h1>
       <h2>Liste des IDs des Cocktails</h2>

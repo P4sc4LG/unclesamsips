@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react';
 
 function useCocktail(nameCocktail) {
-  const [cocktails, setCocktails] = useState([]);
+
   const apiUrl = nameCocktail
     ? `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${nameCocktail}`
     : 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=';
 
-  useEffect(() => {
+ 
     async function fetchCocktails() {
       try {
         const isTestMode = process.env.REACT_APP_TEST === 'true';
         const alphabet = isTestMode ? 'abc' : 'abcdefghijklmnopqrstuvwxyz';
-
         const cocktailsData = [];
         if(!nameCocktail){
             for (const letter of alphabet) {
@@ -29,13 +28,11 @@ function useCocktail(nameCocktail) {
             const data = await response.json();
             cocktailsData.push(...data.drinks);
         }
-        setCocktails(cocktailsData);
+        return cocktailsData;
       } catch (error) {
         console.error('Erreur lors de la récupération des cocktails :', error);
       }
-    }
-    fetchCocktails();
-  }, [nameCocktail,apiUrl]);
+  }
 
   async function fetchCocktailById(id){
     const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
@@ -49,7 +46,7 @@ function useCocktail(nameCocktail) {
     return data.drinks[0];
   }
   
-  return { cocktails, fetchCocktailById, fetchRandomCocktail };
+  return { fetchCocktails, fetchCocktailById, fetchRandomCocktail };
 }
 
 export default useCocktail;

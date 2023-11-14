@@ -6,6 +6,7 @@ export { default as Label } from './public/Label/Label'
 export { default as Title } from './shared/Title/Title'
 export { default as Search } from './shared/Search/Search'
 export { default as Toggle } from './shared/Toggle/Toggle'
+export { default as Loading } from './shared/Loading/Loading'
 
 
 

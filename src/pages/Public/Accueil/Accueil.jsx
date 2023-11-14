@@ -1,13 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CardCocktail from '@/components/public/CardCocktail/CardCocktail';
 import useCocktail from '@/hooks/useCocktail';
 import Title from '@/components/shared/Title/Title';
 import Search from '@/components/shared/Search/Search';
 import './accueil.css';
+import CocktailList from '@/components/CocktailList';
+import Loading from '@/components/shared/Loading/Loading';
 
 
 const Accueil = () => {
-    const { cocktails } = useCocktail(null);
+
+    const { fetchCocktails } = useCocktail(null);
+    const [cocktails, setCocktails] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    
+
+    useEffect(() => {     
+            async function fetchCocktail() {
+                try {
+                
+                    const cocktail = await fetchCocktails();
+                    setCocktails(cocktail);
+            
+                    setIsLoading(false);
+                    
+        
+                } catch (error) {
+                    console.error('Erreur lors de la récupération du cocktail:', error);
+                    setIsLoading(false);
+                }
+            }
+            fetchCocktail();
+    }, []);
 
     //For pagination & cocktail
     const [currentPage, setCurrentPage] = useState(1);
@@ -20,6 +44,7 @@ const Accueil = () => {
     const filteredCocktails = cocktails.filter(cocktail =>
         cocktail.strDrink.toLowerCase().includes(searchTerm.toLowerCase())
     );
+    
 
     // Function to divide cocktail into 3 group of cocktail
     const chunkArray = (arr, chunkSize) => {
@@ -52,16 +77,17 @@ const Accueil = () => {
 
     return (
         <div style={{ paddingBottom: '2em' }}>
+         
             <Title content={'Cocktails'} color={'#FFDF2B'} />
             <Search placeholder="Rechercher un cocktail..." value={searchTerm} onChange={(e) => {
                 setSearchTerm(e.target.value)
                 setCurrentPage(1);
             }} />
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            {isLoading ? <Loading/> : <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <div>
                     <table>
                         {chunkedCocktails.map((row, rowIndex) => (
-                            <tbody>
+                            <tbody key={rowIndex}>
                                 <tr key={rowIndex}>
                                     {row.map((col, colIndex) => (
                                         <td key={colIndex}>
@@ -88,7 +114,7 @@ const Accueil = () => {
                         ))}
                     </div>
                 </div>
-            </div>
+            </div>}
         </div>
 
     );
