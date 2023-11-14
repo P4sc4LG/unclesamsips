@@ -1,10 +1,16 @@
+import { useContext } from 'react';
 import React from 'react';
+import { DarkModeContext } from '@/context/DarkModeContext';
 import './toggle.css';
 
 const Toggle = () => {
+    const {darkMode, toggleDarkMode} = useContext(DarkModeContext);
+    const handleClick = () => {
+        toggleDarkMode();
+    }
     return (
         <label className="switch">
-            <input type="checkbox" />
+            <input type="checkbox" onClick={handleClick}/>
             <span className="slider round"></span>
         </label>
     );

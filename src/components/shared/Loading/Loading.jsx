@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import cocktailIcon from '../../../assets/icons/cocktail.png'; // Ajoutez le chemin correct
+import React from 'react';
+import cocktailIcon from '../../../assets/icons/cocktail.png'; 
 
 import './loading.css';
 

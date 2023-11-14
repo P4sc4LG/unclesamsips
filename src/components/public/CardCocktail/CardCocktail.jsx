@@ -60,7 +60,7 @@ const CardCocktail = ({ uid, title, img, alcoholic }) => {
             <img src={img} alt={title} />
           </a>
           <a className="card-description" href={img} target="_blank">
-            <h5>{title}</h5>
+            <h5 style={{ color:'black' }}>{title}</h5>
           </a>
         </li>
       </div>

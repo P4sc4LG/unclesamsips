@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { usePalette } from 'color-thief-react';
 import Color from 'color';
@@ -9,13 +9,14 @@ import './cocktail.css';
 import useCocktail from '@/hooks/useCocktail';
 import { Instruction, Label } from '@/components';
 import { Col, Row } from 'react-bootstrap';
-
+import { DarkModeContext } from '../../../context/DarkModeContext';
 const Loading = () => <div>Loading...</div>;
 
 const Cocktail = () => {
     const { uid } = useParams();
     const { fetchCocktailById } = useCocktail();
     const [cocktail, setCocktail] = useState({});
+    const {darkMode} = useContext(DarkModeContext);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -37,7 +38,6 @@ const Cocktail = () => {
     );
 
     console.log('Palette Data:', paletteData); // Ajout de cette ligne pour déboguer
-
     // Création du style pour le fond de dégradé
     const gradientStyle = {
         background: paletteData
@@ -57,7 +57,6 @@ const Cocktail = () => {
 
 
     return (
-
         <div style={gradientStyle}>
 
             <Row className="align-items-center">
@@ -70,13 +69,12 @@ const Cocktail = () => {
                     }
                 </Col>
                 <Col>
-                    <Card>
+                    <Card style={{ backgroundColor: darkMode ? '#5C527F' : 'white' }}>
                         <Card.Body>
                             <Card.Title>{cocktail.strDrink}</Card.Title>
                         </Card.Body>
                     </Card>
-
-                    <Card>
+                    <Card style={{ backgroundColor: darkMode ? '#5C527F' : 'white' }}>
                         <Card.Body>
                             <Card.Text>
                                 {cocktail.strInstructions && (
@@ -86,7 +84,7 @@ const Cocktail = () => {
                         </Card.Body>
                     </Card>
 
-                    <Card>
+                    <Card style={{ backgroundColor: darkMode ? '#5C527F' : 'white' }}>
                         <Card.Body>
                             <Card.Text>
                                 <Label content="Les ingrédients"></Label>
@@ -97,7 +95,7 @@ const Cocktail = () => {
             </Row>
         </div>
 
-    );
+    );  
 };
 
 export default Cocktail;

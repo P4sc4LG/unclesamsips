@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './header.css';
 
 import logo from '@/assets/logo.png';
@@ -10,10 +10,13 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import { DarkModeContext } from '../../../context/DarkModeContext';
 
 const Header = () => {
+  const {darkMode} = useContext(DarkModeContext);
+
   return (
-    <Navbar expand="lg" className="bg-white" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
+    <Navbar expand="lg" className={`${darkMode ? 'nav-dark' : 'nav-light'}`} style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
       <Container>
         <Link to='/'><img style={{ width: 350, marginRight: '5em' }} src={logo} alt="logo" /></Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -24,7 +27,7 @@ const Header = () => {
             <Link to='/cocktail/random' className="text-decoration-none col px-md-3 yellow-police" ><Nav.Item><Label content={"Cock'Random"} /></Nav.Item></Link>
           </Nav>
           <Nav className="ms-auto">
-            <div className="vr me-4"></div>
+            <div className="vr me-4" style={{ backgroundColor:'#FFDF2B'}}></div>
             <Nav.Item style={{ paddingTop: '0.3em' }}><Toggle /></Nav.Item>
             <Link to='/admin/dashboard' ><Nav.Item style={{ marginLeft: '1.5em' }}><img src={UserIcon} alt="User" style={{ width: 30, height: 30 }} /></Nav.Item></Link>
           </Nav>

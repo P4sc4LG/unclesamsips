@@ -1,35 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import CardCocktail from '@/components/public/CardCocktail/CardCocktail';
 import useCocktail from '@/hooks/useCocktail';
 import Title from '@/components/shared/Title/Title';
 import Search from '@/components/shared/Search/Search';
 import './accueil.css';
 import Loading from '@/components/shared/Loading/Loading';
+import { DarkModeContext } from '@/context/DarkModeContext';
 
 
 const Accueil = () => {
 
     const { fetchCocktails } = useCocktail(null);
     const [cocktails, setCocktails] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    
+    const [isLoading, setIsLoading] = useState();
+    const {darkMode} = useContext(DarkModeContext);
 
     useEffect(() => {     
             async function fetchCocktail() {
+                setIsLoading(false);
                 try {
-                
                     const cocktail = await fetchCocktails();
-                    setCocktails(cocktail);
-            
-                    setIsLoading(false);
-                    
-        
+                    setCocktails(cocktail);    
+                    setIsLoading(true);
                 } catch (error) {
                     console.error('Erreur lors de la récupération du cocktail:', error);
-                    setIsLoading(false);
+                    setIsLoading(true);
                 }
             }
-            fetchCocktail();
+            fetchCocktail();  
     }, []);
 
     //For pagination & cocktail
@@ -44,7 +42,6 @@ const Accueil = () => {
         cocktail.strDrink.toLowerCase().includes(searchTerm.toLowerCase())
     );
     
-
     // Function to divide cocktail into 3 group of cocktail
     const chunkArray = (arr, chunkSize) => {
         const result = [];
@@ -73,15 +70,16 @@ const Accueil = () => {
     const endIndex = Math.min(totalPageCount - 1, startIndex + pagesToShow - 1);
 
     const displayedPageNumbers = pages.slice(startIndex, endIndex + 1);
-
+    
     return (
-        <div style={{ paddingBottom: '2em' ,marginTop:'1.5em' }}>
+             
+            <div style={{ paddingBottom: '2em' }} className={`${darkMode ? 'body-dark' : 'body-light'}`} >
             <Title content={'Cocktails'} color={'#FFDF2B'} />
             <Search placeholder="Rechercher un cocktail..." value={searchTerm} onChange={(e) => {
                 setSearchTerm(e.target.value)
                 setCurrentPage(1);
             }} />
-            {isLoading ? <Loading/> : <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            {!isLoading ? <Loading/> : <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <div>
                     <table>
                         {chunkedCocktails.map((row, rowIndex) => (
@@ -112,9 +110,11 @@ const Accueil = () => {
                         ))}
                     </div>
                 </div>
-            </div>}
+            </div>
+            }
         </div>
-
+       
+ 
     );
 };
 

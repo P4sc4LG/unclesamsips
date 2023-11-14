@@ -8,13 +8,15 @@ import PublicRouter from '@/pages/Public/PublicRouter';
 
 import AuthRouter from '@/pages/Admin/Auth/AuthRouter';
 import AuthGuard from '@/_helpers/AuthGuard';
+import { DarkModeProvider } from './context/DarkModeContext';
 
 function App() {
   return (
+    <DarkModeProvider>
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route element={<Layout />}>
+         <Route element={<Layout />}>
             <Route path='/*' element={<PublicRouter />} />
             <Route path='/admin/*' element={
               <AuthGuard>
@@ -27,6 +29,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div >
+    </DarkModeProvider>
   );
 }
 

@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import CardIngredient from '@/components/public/CardIngredient/CardIngredient';
 import useIngredient from '@/hooks/useIngredient';
 import Title from '@/components/shared/Title/Title';
 import Search from '@/components/shared/Search/Search';
+import { DarkModeContext } from '../../../context/DarkModeContext';
 import './ingredients.css'; 
 
 const Ingredients = () => {
     const { ingredients } = useIngredient();
-    
+    const {darkMode} = useContext(DarkModeContext);
+
     // For pagination & ingredients
     const [currentPage, setCurrentPage] = useState(1);
     const ingredientsPerPage = 9;
@@ -50,7 +52,7 @@ const Ingredients = () => {
     const displayedPageNumbers = pages.slice(startIndex, endIndex + 1);
 
     return (
-        <div style={{ paddingBottom: '2em', marginTop: '1.5em' }}>
+        <div style={{ paddingBottom: '2em'}} className={`${darkMode ? 'body-dark' : 'body-light'}`}>
             <Title content={'Ingredients'} color={'#FFDF2B'} />
             <Search placeholder="Rechercher un ingrédient..." value={searchTerm} onChange={(e) => {
                 setSearchTerm(e.target.value);

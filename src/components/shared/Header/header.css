@@ -2,3 +2,9 @@
     color: #FFDF2B;
     text-transform: uppercase;
 }
+.nav-dark{
+    background-color:#261C2C;
+}
+.nav-light{
+    background-color: rgb(255, 255, 255);
+}
