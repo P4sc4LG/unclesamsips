@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
-import CardIngredient from '@/components/public/CardIngredient/CardIngredient';
-import useIngredient from '@/hooks/useIngredient';
-import Title from '@/components/shared/Title/Title';
-import Search from '@/components/shared/Search/Search';
+import CardIngredient from '../../../components/public/CardIngredient/CardIngredient';
+import useIngredient from '../../../hooks/useIngredient';
+import Title from '../../../components/shared/Title/Title';
+import Search from '../../../components/shared/Search/Search';
 import { DarkModeContext } from '../../../context/DarkModeContext';
 import './ingredients.css'; 
 

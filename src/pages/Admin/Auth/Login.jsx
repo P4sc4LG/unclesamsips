@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { accountService } from '@/_services';
+import { accountService } from '../../../_services';
 
 import { Form, Button } from 'react-bootstrap';
 

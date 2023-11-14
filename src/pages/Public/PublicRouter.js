@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom'
 
 import { Accueil, Ingredients, RandomCocktail, Cocktail } from './'
-import Error from '@/_utils/Error'
+import Error from '../../_utils/Error'
 
 const PublicRouter = () => {
     return (

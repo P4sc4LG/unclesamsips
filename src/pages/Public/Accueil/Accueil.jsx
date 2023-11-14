@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react';
-import CardCocktail from '@/components/public/CardCocktail/CardCocktail';
-import useCocktail from '@/hooks/useCocktail';
-import Title from '@/components/shared/Title/Title';
-import Search from '@/components/shared/Search/Search';
+import CardCocktail from '../../../components/public/CardCocktail/CardCocktail';
+import useCocktail from '../../../hooks/useCocktail';
+import Title from '../../../components/shared/Title/Title';
+import Search from '../../../components/shared/Search/Search';
 import './accueil.css';
-import Loading from '@/components/shared/Loading/Loading';
-import { DarkModeContext } from '@/context/DarkModeContext';
+import Loading from '../../../components/shared/Loading/Loading';
+import { DarkModeContext } from '../../../context/DarkModeContext';
 
 
 const Accueil = () => {

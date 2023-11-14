@@ -1,7 +1,7 @@
 @font-face {
     font-family: "Franklin";   
     src: local("FRAHVIT"),
-      url("@/assets/fonts/FRAHVIT.TTF");
+      url("../../../assets/fonts/FRAHVIT.TTF");
 }
 h1 {
     font-family: "Franklin";

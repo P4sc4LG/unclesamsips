@@ -3,11 +3,11 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Layout from './pages/Public/Layout';
-import AdminRouter from '@/pages/Admin/AdminRouter';
-import PublicRouter from '@/pages/Public/PublicRouter';
+import AdminRouter from './pages/Admin/AdminRouter';
+import PublicRouter from './pages/Public/PublicRouter';
 
-import AuthRouter from '@/pages/Admin/Auth/AuthRouter';
-import AuthGuard from '@/_helpers/AuthGuard';
+import AuthRouter from './pages/Admin/Auth/AuthRouter';
+import AuthGuard from './_helpers/AuthGuard';
 import { DarkModeProvider } from './context/DarkModeContext';
 
 function App() {

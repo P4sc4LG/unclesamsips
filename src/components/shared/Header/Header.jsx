@@ -1,10 +1,8 @@
 import React, { useContext } from 'react';
-import './header.css';
+import './Header.css';
 
-import logo from '@/assets/logo.png';
-import UserIcon from '@/assets/icons/user_icon.png';
+import logo from '../../../assets/logo.png';
 import { Label, ProfileDropdown, Toggle } from '../../index';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
