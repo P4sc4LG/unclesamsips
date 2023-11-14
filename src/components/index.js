@@ -10,6 +10,6 @@ export { default as Toggle } from './shared/Toggle/Toggle'
 export { default as Loading } from './shared/Loading/Loading'
 export { default as AHeader } from './admin/AHeader/AHeader'
 export { default as SideMenu } from './admin/SideMenu/SideMenu'
-
+export { default as ProfileDropdown } from './shared/ProfileDropdown/ProfileDropdown'
 
 

@@ -14,7 +14,6 @@ const AHeader = () => {
     return (
         <div className="AHeader">
             Administration Zone
-            <button onClick={logout}>Logout</button>
         </div>
     );
 };
