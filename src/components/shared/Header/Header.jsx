@@ -26,10 +26,13 @@ const Header = () => {
           </Nav>
           <Nav className="ms-auto">
             <div className="vr me-4"></div>
-            <Nav.Item style={{ paddingTop: '1em' }}><Toggle /></Nav.Item>
+            <Nav.Item style={{ paddingTop: '1em', paddingRight:'1em' }}><Toggle /></Nav.Item>
             <NavDropdown title={<img src={UserIcon} alt="User" style={{ width: 30, height: 30 }} />} id="nav-dropdown" drop="down">
+            <NavDropdown.Item as={Link} to="/admin/dashboard">
+                Administration
+              </NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/admin/dashboard">
-                Your Dropdown Item
+                Se déconnecter
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

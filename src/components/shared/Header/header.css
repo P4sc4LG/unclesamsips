@@ -4,6 +4,9 @@
 }
 
 .dropdown-menu.show {
-    margin-right: -250%;
+    margin-left: -100px;
   }
   
+  .dropdown-toggle::after {
+    display: none!important;
+  }
