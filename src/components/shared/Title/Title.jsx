@@ -1,8 +1,12 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import './Title.css';
 
 const Title = ({ content, color }) => {
-    return <h1 style={{ color: color }}>{content}</h1>
+    return (
+        <div>
+            <h1 style={{ color: color }}>{content}</h1>
+        </div>  
+    );
 }
 
 export default Title;

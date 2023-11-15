@@ -1,19 +1,21 @@
-import React, { useContext } from 'react';
+import React,{useContext} from 'react';
 import './Header.css';
 
 import logo from '../../../assets/logo.png';
-import { Label, ProfileDropdown, Toggle } from '../../index';
+//import { Label, ProfileDropdown, Toggle } from '../../index';
+import Label from '../../public/Label/Label';
+import ProfileDropdown from '../ProfileDropdown/ProfileDropdown';
+import Toggle from '../Toggle/Toggle';
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
 import { DarkModeContext } from '../../../context/DarkModeContext';
 
 const Header = () => {
   const {darkMode} = useContext(DarkModeContext);
-
   return (
-    <Navbar expand="lg" className={`${darkMode ? 'nav-dark' : 'nav-light'}`} style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
+    <Navbar expand="lg"  style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }} className={`${darkMode ? 'nav-dark' : 'nav-light'}`}>
       <Container>
         <Link to='/'><img style={{ width: 350, marginRight: '5em' }} src={logo} alt="logo" /></Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
