@@ -88,3 +88,6 @@
 	text-decoration: none;
   }
   
+  .CardIngredient .card-description{
+	color: #000;
+  }
