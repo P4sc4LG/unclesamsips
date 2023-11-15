@@ -4,6 +4,8 @@ import Card from "react-bootstrap/Card";
 import { Instruction, Label } from '../../index';
 import { usePalette } from "color-thief-react";
 import Color from "color";
+import { Link } from 'react-router-dom';
+
 
 const ShowCocktail = ({ cocktail }) => {
   // Utilisation du hook usePalette
@@ -44,11 +46,13 @@ const ShowCocktail = ({ cocktail }) => {
         continue; // Ignore les ingrédients vides
       }
 
-      ingredients.push(`${ingredientMeasure} ${ingredientName}`);
+      ingredients.push({ measure: ingredientMeasure, name: ingredientName });
     }
 
     return ingredients.map((ingredient, index) => (
-      <div key={index}>{ingredient}</div>
+      <Link to={`/ingredient/show/${ingredient.name}`}>
+        <div key={index}>{ingredient.name}</div>
+      </Link>
     ));
   };
 

@@ -89,3 +89,7 @@ body {
 a:-webkit-any-link {
 	text-decoration: none;
 }
+
+:any-link {
+	text-decoration: none;
+}

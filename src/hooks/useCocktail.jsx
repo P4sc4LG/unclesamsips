@@ -45,8 +45,29 @@ function useCocktail(nameCocktail) {
     const data = await response.json();
     return data.drinks[0];
   }
+
+  async function fetchCocktailsByIngredient(ingredient) {
+    try {
+      const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`);
+      const data = await response.json();
   
-  return { fetchCocktails, fetchCocktailById, fetchRandomCocktail };
+      // Récupérer les détails pour chaque cocktail
+      const cocktailsData = await Promise.all(
+        data.drinks.map(async (cocktail) => {
+          const detailedCocktailResponse = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktail.idDrink}`);
+          const detailedCocktailData = await detailedCocktailResponse.json();
+          return detailedCocktailData.drinks[0];
+        })
+      );
+  
+      return cocktailsData;
+    } catch (error) {
+      console.error('Erreur lors de la récupération des cocktails par ingrédient :', error);
+      return [];
+    }
+  }
+  
+  return { fetchCocktails, fetchCocktailById, fetchRandomCocktail, fetchCocktailsByIngredient };
 }
 
 export default useCocktail;
