@@ -14,9 +14,9 @@ Default.args = {
     cocktail: {}
 };
 
-export const WithCocktail = Template.bind({});
+export const Cocktail = Template.bind({});
 
-WithCocktail.args = {
+Cocktail.args = {
     cocktail: {
         "idDrink": "16271",
         "strDrink": "The Evil Blue Thing",
@@ -72,9 +72,9 @@ WithCocktail.args = {
     }
 };
 
-export const WithNoAlcoholicCocktail = Template.bind({});
+export const NoAlcoholicCocktail = Template.bind({});
 
-WithNoAlcoholicCocktail.args = {
+NoAlcoholicCocktail.args = {
     cocktail: {
         "idDrink": "15106",
         "strDrink": "Apello",

@@ -1,7 +1,7 @@
 import React from 'react';
 import {CardIngredient} from "../../index";
-import { DarkModeProvider } from '../../../context/DarkModeContext';
-import { MemoryRouter } from 'react-router-dom';
+import {DarkModeProvider} from '../../../context/DarkModeContext';
+import {MemoryRouter} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default {
@@ -9,13 +9,13 @@ export default {
     component: CardIngredient,
     decorators: [
         (Story) => (
-          <DarkModeProvider>
-            <MemoryRouter>
-              <Story />
-            </MemoryRouter>
-          </DarkModeProvider>
+            <DarkModeProvider>
+                <MemoryRouter>
+                    <Story/>
+                </MemoryRouter>
+            </DarkModeProvider>
         ),
-      ],
+    ],
 };
 
 const Template = (args) => <CardIngredient {...args} />;
@@ -27,9 +27,9 @@ Default.args = {
     ingredientName: "",
 };
 
-export const WithIngredient = Template.bind({});
+export const Ingredient = Template.bind({});
 
-WithIngredient.args = {
+Ingredient.args = {
     ingredientId: "552",
     ingredientName: "Elderflower cordial",
 };

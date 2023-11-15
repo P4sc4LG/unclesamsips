@@ -1,7 +1,7 @@
 import React from 'react';
 import {CardCocktail} from "../../index";
-import { DarkModeProvider } from '../../../context/DarkModeContext';
-import { MemoryRouter } from 'react-router-dom';
+import {DarkModeProvider} from '../../../context/DarkModeContext';
+import {MemoryRouter} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default {
@@ -9,13 +9,13 @@ export default {
     component: CardCocktail,
     decorators: [
         (Story) => (
-          <DarkModeProvider>
-            <MemoryRouter>
-              <Story />
-            </MemoryRouter>
-          </DarkModeProvider>
+            <DarkModeProvider>
+                <MemoryRouter>
+                    <Story/>
+                </MemoryRouter>
+            </DarkModeProvider>
         ),
-      ],
+    ],
 };
 
 const Template = (args) => <CardCocktail {...args} />;
@@ -29,18 +29,18 @@ Default.args = {
     alcoholic: "Alcoholic"
 };
 
-export const WithCocktail = Template.bind({});
+export const Cocktail = Template.bind({});
 
-WithCocktail.args = {
+Cocktail.args = {
     uid: "11007",
     title: "Margarita",
     img: "https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg",
     alcoholic: "Alcoholic"
 };
 
-export const WithNoAlcoholicCocktail = Template.bind({});
+export const NoAlcoholicCocktail = Template.bind({});
 
-WithNoAlcoholicCocktail.args = {
+NoAlcoholicCocktail.args = {
     uid: "12672",
     title: "Fruit Flip-Flop",
     img: "https://www.thecocktaildb.com/images/media/drink/nfdx6p1484430633.jpg",

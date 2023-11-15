@@ -15,16 +15,37 @@ Default.args = {
     color: ""
 };
 
-export const WithContent = Template.bind({});
+export const Content = Template.bind({});
 
-WithContent.args = {
+Content.args = {
     content: "Cocktails",
     color: ""
 };
 
-export const WithColor = Template.bind({});
+export const Color = Template.bind({});
 
-WithColor.args = {
+Color.args = {
     content: "Cocktails",
-    color: "blue"
+    color: "#FFDF2B"
+};
+
+export const Underline = Template.bind({});
+
+Underline.args = {
+    content: "Cocktails",
+    underline: true
+};
+
+export const Uppercase = Template.bind({});
+
+Uppercase.args = {
+    content: "Cocktails",
+    uppercase: true
+};
+
+export const Italic = Template.bind({});
+
+Italic.args = {
+    content: "Cocktails",
+    italic: true
 };

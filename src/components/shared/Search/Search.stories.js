@@ -16,9 +16,9 @@ Default.args = {
     onChange: null
 };
 
-export const WithValue = Template.bind({});
+export const Value = Template.bind({});
 
-WithValue.args = {
+Value.args = {
     placeholder: "Rechercher un cocktail...",
     value: "ABC",
     onChange: null

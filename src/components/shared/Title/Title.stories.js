@@ -11,13 +11,20 @@ const Template = (args) => <Title {...args} />;
 export const Default = Template.bind({});
 
 Default.args = {
+    content: "",
+    color: ""
+};
+
+export const Content = Template.bind({});
+
+Content.args = {
     content: "Title",
     color: ""
 };
 
-export const WithColor = Template.bind({});
+export const Color = Template.bind({});
 
-WithColor.args = {
+Color.args = {
     content: "Title",
-    color: "blue"
+    color: "#FFDF2B"
 };
