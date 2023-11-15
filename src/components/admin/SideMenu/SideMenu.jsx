@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Card from 'react-bootstrap/Card';
-
 import './SideMenu.css';
-import Label from '../../public/Label/Label';
+import {Label} from '../../index';
 
 const SideMenu = () => {
     return (
