@@ -74,7 +74,7 @@ const ShowCocktail = ({ cocktail }) => {
           <Card>
             <Card.Body>
               <Card.Text>
-                <Label content="Les ingrédients"></Label>
+                <Label content="Ingrédients"></Label>
                 {renderIngredients()}
               </Card.Text>
             </Card.Body>
