@@ -1,17 +1,23 @@
 import React from 'react';
-import Title from './Title';
+import {Title} from "../../index";
 
 export default {
-    component: Title,
-    title: 'component/Title',
-
+    title: 'Shared/Title',
+    component: Title
 };
 
-const Template = (args) => <Title {...args} />
+const Template = (args) => <Title {...args} />;
 
 export const Default = Template.bind({});
 
 Default.args = {
-    content: 'lorem ipsum dolor sit amet',
-    color: 'red'
-}
+    content: "Title",
+    color: ""
+};
+
+export const WithColor = Template.bind({});
+
+WithColor.args = {
+    content: "Title",
+    color: "blue"
+};
