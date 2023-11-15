@@ -1,5 +1,5 @@
 import React from 'react';
-import './search.css';
+import './Search.css';
 
 const Search = ({ placeholder, value, onChange }) => {
     return <input className='search-bar'

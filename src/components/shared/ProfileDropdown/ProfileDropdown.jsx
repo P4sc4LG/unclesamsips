@@ -1,10 +1,10 @@
 import React from 'react';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
-import { accountService } from '@/_services/account.service';
+import { accountService } from '../../../_services/account.service';
 import { useNavigate } from 'react-router-dom';
 
-import UserIcon from '@/assets/icons/user_icon.png';
+import UserIcon from '../../../assets/icons/user_icon.png';
 
 const ProfileDropdown = () => {
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import Login from '@/pages/Admin/Auth/Login';
-import Error from '@/_utils/Error.js';
+import Login from '../../../pages/Admin/Auth/Login';
+import Error from '../../../_utils/Error.js';
 
 const AuthRouter = () => {
     return (

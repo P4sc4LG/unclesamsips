@@ -1,5 +1,5 @@
 import axios from "axios";
-import { accountService } from '@/_services/account.service'
+import { accountService } from '../_services/account.service'
 
 const Axios = axios.create({
     baseURL: 'http://localhost:7777'

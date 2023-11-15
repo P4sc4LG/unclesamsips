@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { usePalette } from 'color-thief-react';
 import Color from 'color';
-import iconNoAlcohol from '@/assets/icons/no_alcohol.png';
+import iconNoAlcohol from '../../../assets/icons/no_alcohol.png';
 import './CardCocktail.css';
 
 const CardCocktail = ({ uid, title, img, alcoholic }) => {

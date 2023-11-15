@@ -1,9 +1,8 @@
 import React, {useEffect, useState, useRef, useContext} from 'react';
-import useCocktail from "@/hooks/useCocktail";
-import { DarkModeContext } from '@/context/DarkModeContext';
+import useCocktail from "../../../hooks/useCocktail";
+import {DarkModeContext} from '../../../context/DarkModeContext';
 import './RandomCocktail';
-import ShowCocktail from "@/components/public/ShowCocktail/ShowCocktail";
-import Loading from "@/components/shared/Loading/Loading";
+import {ShowCocktail, Loading} from '../../../components/index';
 
 const RandomCocktail = () => {
 

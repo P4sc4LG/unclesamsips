@@ -1,9 +1,7 @@
-import React, { useState, useContext } from 'react';
-import CardIngredient from '@/components/public/CardIngredient/CardIngredient';
-import useIngredient from '@/hooks/useIngredient';
-import Title from '@/components/shared/Title/Title';
-import Search from '@/components/shared/Search/Search';
-import { DarkModeContext } from '../../../context/DarkModeContext';
+import React, {useState, useContext} from 'react';
+import {CardIngredient, Title, Search} from '../../../components/index';
+import useIngredient from '../../../hooks/useIngredient';
+import {DarkModeContext} from '../../../context/DarkModeContext';
 import './ingredients.css'; 
 
 const Ingredients = () => {
@@ -53,7 +51,7 @@ const Ingredients = () => {
 
     return (
         <div style={{ paddingBottom: '2em'}} className={`${darkMode ? 'body-dark' : 'body-light'}`}>
-            <Title content={'Ingredients'} color={'#FFDF2B'} />
+            <Title content={'Ingrédients'} color={'#FFDF2B'} />
             <Search placeholder="Rechercher un ingrédient..." value={searchTerm} onChange={(e) => {
                 setSearchTerm(e.target.value);
                 setCurrentPage(1);

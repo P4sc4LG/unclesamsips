@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import Label from '../Label/Label';
-import './instruction.css';
+import React, {useEffect, useState} from 'react';
+import {Label} from '../../index';
+import './Instruction.css';
 
 const Instruction = ({ strInstructions }) => {
     const [instructions, setInstructions] = useState([]);

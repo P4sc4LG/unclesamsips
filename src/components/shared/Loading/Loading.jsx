@@ -1,7 +1,7 @@
 import React from 'react';
 import cocktailIcon from '../../../assets/icons/cocktail.png'; 
 
-import './loading.css';
+import './Loading.css';
 
 const Loading = () => {
     return (

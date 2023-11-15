@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 import './admin.css'
 
-import { AHeader, SideMenu } from '@/components/'
+import { SideMenu } from '../../components/index.js'
 
 const ALayout = () => {
     return (

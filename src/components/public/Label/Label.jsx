@@ -1,5 +1,5 @@
 import React from 'react';
-import './label.css'
+import './Label.css'
 
 const Label = ({ content, color }) => {
     return <span className="Label" style={{ color: color }}>{content}</span>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { userService } from '@/_services';
+import { userService } from '../../../_services';
 import Table from 'react-bootstrap/Table';
 import Card from 'react-bootstrap/Card';
 
