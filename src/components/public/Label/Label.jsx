@@ -1,8 +1,8 @@
 import React from 'react';
 import './Label.css'
 
-const Label = ({ content, color }) => {
-    return <span className="Label" style={{ color: color }}>{content}</span>
+const Label = ({content, color, onClick}) => {
+    return <span className="Label" style={{color: color}} onClick={onClick}>{content}</span>
 }
 
 export default Label;

@@ -35,7 +35,7 @@ const RandomCocktail = () => {
     }, []);
 
     return (
-        <div className={`${darkMode ? 'body-dark' : 'body-light'}`}>
+        <div id="random-cocktail" className={`${darkMode ? 'body-dark' : 'body-light'}`}>
             {
                 isLoading ? <ShowCocktail cocktail={randomCocktail}/> : <Loading/>
             }

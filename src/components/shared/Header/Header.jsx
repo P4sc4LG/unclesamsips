@@ -1,19 +1,19 @@
-import React,{useContext} from 'react';
+import React, {useContext} from 'react';
 import './Header.css';
 
 import logo from '../../../assets/logo.png';
-//import { Label, ProfileDropdown, Toggle } from '../../index';
 import Label from '../../public/Label/Label';
 import ProfileDropdown from '../ProfileDropdown/ProfileDropdown';
 import Toggle from '../Toggle/Toggle';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { DarkModeContext } from '../../../context/DarkModeContext';
+import {DarkModeContext} from '../../../context/DarkModeContext';
 
 const Header = () => {
   const {darkMode} = useContext(DarkModeContext);
+  const navigate = useNavigate();
   return (
     <Navbar expand="lg"  style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }} className={`${darkMode ? 'nav-dark' : 'nav-light'}`}>
       <Container>
@@ -23,7 +23,11 @@ const Header = () => {
           <Nav className="me-auto">
             <Link to='/' className="text-decoration-none col px-md-3 yellow-police "><Nav.Item><Label content={"Cocktails"} /></Nav.Item></Link>
             <Link to='/ingredients' className="text-decoration-none col px-md-3 yellow-police" ><Nav.Item><Label content={"Ingrédients"} /></Nav.Item></Link>
-            <Link to='/cocktail/random' className="text-decoration-none col px-md-3 yellow-police" ><Nav.Item><Label content={"Random'Cocktail"} /></Nav.Item></Link>
+            <Link to='/cocktail/random' className="text-decoration-none col px-md-3 yellow-police" ><Nav.Item><Label content={"Random'Cocktail"} onClick={() => {
+              if (document.querySelector("div#random-cocktail")) {
+                navigate(0);
+              }
+            }} /></Nav.Item></Link>
           </Nav>
           <Nav className="ms-auto">
             <div className="vr me-4"></div>
