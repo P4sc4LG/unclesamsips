@@ -1,9 +1,21 @@
 import React from 'react';
 import {CardCocktail} from "../../index";
+import { DarkModeProvider } from '../../../context/DarkModeContext';
+import { MemoryRouter } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default {
     title: 'public/CardCocktail',
-    component: CardCocktail
+    component: CardCocktail,
+    decorators: [
+        (Story) => (
+          <DarkModeProvider>
+            <MemoryRouter>
+              <Story />
+            </MemoryRouter>
+          </DarkModeProvider>
+        ),
+      ],
 };
 
 const Template = (args) => <CardCocktail {...args} />;
