@@ -9,6 +9,7 @@ const RandomCocktail = () => {
     const [randomCocktail, setRandomCocktail] = useState([]);
     const flag = useRef(false);
     const {fetchRandomCocktail} = useCocktail();
+
     const {darkMode} = useContext(DarkModeContext);
     const [isLoading, setIsLoading] = useState();
 
@@ -35,9 +36,11 @@ const RandomCocktail = () => {
     }, []);
 
     return (
-        <div className={`${darkMode ? 'body-dark' : 'body-light'}`}>
-            {
-                isLoading ? <ShowCocktail cocktail={randomCocktail}/> : <Loading/>
+        <div>
+            { isLoading ? <div className={`${darkMode ? 'body-dark' : 'body-light'}`}>
+                                <ShowCocktail cocktail={randomCocktail}/>
+                        </div>
+                        : <Loading/>
             }
         </div>
     );

@@ -2,10 +2,12 @@ import React, {useState, useContext} from 'react';
 import {CardIngredient, Title, Search} from '../../../components/index';
 import useIngredient from '../../../hooks/useIngredient';
 import {DarkModeContext} from '../../../context/DarkModeContext';
-import './ingredients.css'; 
+import './Ingredients.css'; 
 
 const Ingredients = () => {
     const { ingredients } = useIngredient();
+
+    const [isLoading, setIsLoading] = useState();
     const {darkMode} = useContext(DarkModeContext);
 
     // For pagination & ingredients

@@ -1,13 +1,14 @@
 import React, {useEffect, useState, useContext} from 'react';
 import {CardCocktail, Title, Search, Loading} from '../../../components/index';
 import useCocktail from '../../../hooks/useCocktail';
-import './accueil.css';
+import './Accueil.css';
 import {DarkModeContext} from '../../../context/DarkModeContext';
 
 const Accueil = () => {
 
     const { fetchCocktails } = useCocktail(null);
     const [cocktails, setCocktails] = useState([]);
+    
     const [isLoading, setIsLoading] = useState();
     const {darkMode} = useContext(DarkModeContext);
 
@@ -75,7 +76,7 @@ const Accueil = () => {
                 setSearchTerm(e.target.value)
                 setCurrentPage(1);
             }} />
-            {!isLoading ? <Loading/> : <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            {!isLoading ? <Loading/> : <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop:'3em' }}>
                 <div>
                     <table>
                         {chunkedCocktails.map((row, rowIndex) => (
