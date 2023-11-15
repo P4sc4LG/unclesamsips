@@ -71,17 +71,6 @@ const ShowCocktail = ({ cocktail }) => {
               <Card.Title>{cocktail.strDrink}</Card.Title>
             </Card.Body>
           </Card>
-
-          <Card>
-            <Card.Body>
-              <Card.Text>
-                {cocktail.strInstructions && (
-                  <Instruction strInstructions={cocktail.strInstructions} />
-                )}
-              </Card.Text>
-            </Card.Body>
-          </Card>
-
           <Card>
             <Card.Body>
               <Card.Text>
@@ -92,7 +81,20 @@ const ShowCocktail = ({ cocktail }) => {
           </Card>
         </Col>
       </Row>
-    </div>
+      <Row>
+        <Col>
+          <Card style={{ minWidth: '38rem' }}>
+            <Card.Body>
+              <Card.Text>
+                {cocktail.strInstructions && (
+                  <Instruction strInstructions={cocktail.strInstructions} />
+                )}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </div >
   );
 };
 
