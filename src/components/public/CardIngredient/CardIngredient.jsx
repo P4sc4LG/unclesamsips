@@ -43,7 +43,7 @@ const CardIngredient = ({ ingredientId, ingredientName }) => {
 
   return (
     <Link to={`/ingredient/show/${ingredientId}`}>
-      <div className="col">
+      <div className="col CardIngredient">
         <li className="card" style={gradientStyle}>
           <a
             className="card-image"

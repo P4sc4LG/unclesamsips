@@ -41,7 +41,7 @@ const CardCocktail = ({ uid, title, img, alcoholic }) => {
 
   return (
     <Link to={`/cocktail/show/${uid}`}>
-      <div className="col">
+      <div className="col CardCocktail">
         <li className={`card ${alcoholic === 'Non alcoholic' ? 'non-alcoholic' : ''}`} style={gradientStyle}>
           {alcoholic === 'Alcoholic' ? (
             <span className="alcoholic-label"></span>
