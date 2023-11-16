@@ -86,7 +86,7 @@ const ShowCocktail = ({ cocktail }) => {
       </Row>
       <Row>
         <Col>
-          <Card className={`${darkMode ? 'mini-card-dark' : 'mini-card-light'}`} style={{ backgroundColor: darkMode ? '#5C527F' : 'rgb(255, 255, 255)' }}>
+          <Card className={`${darkMode ? 'mini-card-dark' : 'mini-card-light'}`} style={{ maxWidth:'50rem', backgroundColor: darkMode ? '#5C527F' : 'rgb(255, 255, 255)' }}>
             <Card.Body>
               <Card.Text>
                 {cocktail.strInstructions && (

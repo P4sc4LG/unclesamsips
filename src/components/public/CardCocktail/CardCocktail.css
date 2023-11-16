@@ -91,11 +91,12 @@ a:-webkit-any-link {
 }
 
 @font-face {
-    font-family: "Franklin";   
-    src: local("FRAHVIT"),
-      url("../../../assets/fonts/FRAHVIT.TTF");
+	font-family: "Franklin";
+	src: local("FRAHVIT"),
+		url("../../../assets/fonts/FRAHVIT.TTF");
 }
 
-.CardCocktail h5{
-font-family: "Franklin", sans-serif!important;
+.CardCocktail h5 {
+	font-family: "Franklin", sans-serif !important;
 }
+
