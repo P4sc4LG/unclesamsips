@@ -5,7 +5,6 @@ import { Instruction, Label } from '../../index';
 import { usePalette } from "color-thief-react";
 import { DarkModeContext } from '../../../context/DarkModeContext';
 import Color from "color";
-import './ShowCocktail.css';
 
 const ShowCocktail = ({ cocktail }) => {
   const { darkMode } = useContext(DarkModeContext);
