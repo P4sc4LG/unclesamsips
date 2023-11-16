@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 function useCocktail(nameCocktail) {
 
   const apiUrl = nameCocktail
@@ -46,7 +44,35 @@ function useCocktail(nameCocktail) {
     return data.drinks[0];
   }
   
-  return { fetchCocktails, fetchCocktailById, fetchRandomCocktail };
+  async function fetchCocktailsByIngredient(ingredient) {
+    try {
+      const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`);
+      const data = await response.json();
+
+      const maxConcurrentRequests = 2; 
+      const cocktailsData = [];
+
+      const processBatch = async (batch) => {
+      const batchPromises = batch.map(cocktail => fetchCocktailById(cocktail.idDrink));
+      const batchResults = await Promise.all(batchPromises);
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+      cocktailsData.push(...batchResults);
+    };
+
+    for (let i = 0; i < data.drinks.length; i += maxConcurrentRequests) {
+      const batch = data.drinks.slice(i, i + maxConcurrentRequests);
+      await processBatch(batch);
+    }
+    return cocktailsData;
+
+    } catch (error) {
+      console.error('Erreur lors de la récupération des cocktails par ingrédient :', error);
+      return [];
+    }
+  }
+
+  return { fetchCocktails, fetchCocktailById, fetchRandomCocktail, fetchCocktailsByIngredient };
 }
 
 export default useCocktail;

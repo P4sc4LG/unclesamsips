@@ -5,7 +5,7 @@ import logo from '../../../assets/logo.png';
 import Label from '../../public/Label/Label';
 import ProfileDropdown from '../ProfileDropdown/ProfileDropdown';
 import Toggle from '../Toggle/Toggle';
-import {Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';

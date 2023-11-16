@@ -4,15 +4,9 @@ import { usePalette } from 'color-thief-react';
 import Color from 'color';
 import './CardIngredient.css';
 
-const CardIngredient = ({ ingredientId, ingredientName }) => {
-  const { data: paletteData } = usePalette(
-    `https://www.thecocktaildb.com/images/ingredients/${ingredientName}.png`,
-    4,
-    'hex',
-    {
-      crossOrigin: 'anonymous',
-    }
-  );
+const CardIngredient = ({ ingredientId, ingredientName, img }) => {
+  const { data: paletteData } = usePalette(img, 4,'hex',{ crossOrigin: 'anonymous',
+  });
 
   const gradientStyle = {
     background: paletteData
@@ -34,8 +28,8 @@ const CardIngredient = ({ ingredientId, ingredientName }) => {
         contentImage.src = image_url;
 
         contentImage.addEventListener('load', function () {
-          cardImage.style.backgroundImage = 'url(' + contentImage.src + ')';
-          cardImage.classList.add('is-loaded');
+        cardImage.style.backgroundImage = 'url(' + contentImage.src + ')';
+        cardImage.classList.add('is-loaded');
         });
       });
     }, 100);
@@ -47,21 +41,21 @@ const CardIngredient = ({ ingredientId, ingredientName }) => {
         <li className="card" style={gradientStyle}>
           <a
             className="card-image"
-            href={`https://www.thecocktaildb.com/images/ingredients/${ingredientName}.png`}
+            href={img}
             target="_blank"
             style={{
-              backgroundImage: `url(https://www.thecocktaildb.com/images/ingredients/${ingredientName}.png)`,
+              backgroundImage: `url(${img})`,
             }}
-            data-image-full={`https://www.thecocktaildb.com/images/ingredients/${ingredientName}.png`}
+            data-image-full={img}
           >
             <img
-              src={`https://www.thecocktaildb.com/images/ingredients/${ingredientName}.png`}
+              src={img}
               alt={ingredientName}
             />
           </a>
           <a
             className="card-description"
-            href={`https://www.thecocktaildb.com/images/ingredients/${ingredientName}.png`}
+            href={img}
             target="_blank"
           >
             <h5>{ingredientName}</h5>

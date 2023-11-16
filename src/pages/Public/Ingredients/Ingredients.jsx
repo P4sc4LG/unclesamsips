@@ -1,13 +1,30 @@
-import React, {useState, useContext} from 'react';
-import {CardIngredient, Title, Search} from '../../../components/index';
+import React, {useState, useContext, useEffect} from 'react';
+import {CardIngredient, Title, Search, Loading} from '../../../components/index';
 import useIngredient from '../../../hooks/useIngredient';
 import {DarkModeContext} from '../../../context/DarkModeContext';
 import './ingredients.css'; 
 
 const Ingredients = () => {
-    const { ingredients } = useIngredient();
+    const { fetchIngredients } = useIngredient();
     const {darkMode} = useContext(DarkModeContext);
+    const [isLoading, setIsLoading] = useState();
+    const [ingredients, setIngredients] = useState([]);
 
+    useEffect(() => {
+        async function fetchIngredient() {
+            setIsLoading(false);
+            try {
+                const ingredient = await fetchIngredients();
+                setIngredients(ingredient);
+                setIsLoading(true);
+            } catch (error) {
+                console.error('Erreur lors de la récupération des ingrédients: ', error);
+                setIsLoading(true);
+            }
+        }
+        fetchIngredient();
+    }, []);
+    
     // For pagination & ingredients
     const [currentPage, setCurrentPage] = useState(1);
     const ingredientsPerPage = 9;
@@ -15,10 +32,11 @@ const Ingredients = () => {
 
     // For Search functionality
     const [searchTerm, setSearchTerm] = useState('');
-
+    
+    // Api conventional, strIngredient1 is similar to an ID 
     const filteredIngredients = ingredients.filter(ingredient =>
-        ingredient && ingredient.strIngredient1.toLowerCase().includes(searchTerm.toLowerCase())
-        );
+        ingredient.strIngredient1.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     // Function to divide ingredients into groups
     const chunkArray = (arr, chunkSize) => {
@@ -56,7 +74,7 @@ const Ingredients = () => {
                 setSearchTerm(e.target.value);
                 setCurrentPage(1);
             }} />
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            {!isLoading ? <Loading/> : <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <div>
                     <table>
                         <tbody>
@@ -68,6 +86,7 @@ const Ingredients = () => {
                                                 key={col.strIngredient1}
                                                 ingredientId={col.strIngredient1}
                                                 ingredientName={col.strIngredient1}
+                                                img={col.img}
                                             />
                                         </td>
                                     ))}
@@ -84,7 +103,7 @@ const Ingredients = () => {
                         ))}
                     </div>
                 </div>
-            </div>
+            </div>}
         </div>
     );
 };
