@@ -9,6 +9,7 @@ import './ShowCocktail.css';
 
 const ShowCocktail = ({ cocktail }) => {
   const { darkMode } = useContext(DarkModeContext);
+  console.log(darkMode);
   // Utilisation du hook usePalette
   const { data: paletteData, loading: paletteLoading } = usePalette(
     cocktail.strDrinkThumb || '',
@@ -69,12 +70,12 @@ const ShowCocktail = ({ cocktail }) => {
           )}
         </Col>
         <Col>
-          <Card className={`${darkMode ? 'mini-card-dark' : 'mini-card-light'}`}>
+          <Card style={{ backgroundColor: darkMode ? '#5C527F' : 'rgb(255, 255, 255)' }}>
             <Card.Body>
               <Card.Title>{cocktail.strDrink}</Card.Title>
             </Card.Body>
           </Card>
-          <Card className={`${darkMode ? 'mini-card-dark' : 'mini-card-light'}`}>
+          <Card style={{ backgroundColor: darkMode ? '#5C527F' : 'rgb(255, 255, 255)' }}>
             <Card.Body>
               <Card.Text>
                 <Label content="Ingrédients"></Label>
@@ -86,7 +87,7 @@ const ShowCocktail = ({ cocktail }) => {
       </Row>
       <Row>
         <Col>
-          <Card className={`${darkMode ? 'mini-card-dark' : 'mini-card-light'}`} style={{ minWidth: '38rem'}}>
+          <Card className={`${darkMode ? 'mini-card-dark' : 'mini-card-light'}`} style={{ backgroundColor: darkMode ? '#5C527F' : 'rgb(255, 255, 255)' }}>
             <Card.Body>
               <Card.Text>
                 {cocktail.strInstructions && (
