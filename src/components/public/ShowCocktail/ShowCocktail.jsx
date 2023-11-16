@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useContext}from 'react';
 import { Col, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { Instruction, Label } from '../../index';
 import { usePalette } from "color-thief-react";
+import { DarkModeContext } from '../../../context/DarkModeContext';
 import Color from "color";
+import './ShowCocktail.css';
 
 const ShowCocktail = ({ cocktail }) => {
+  const { darkMode } = useContext(DarkModeContext);
   // Utilisation du hook usePalette
   const { data: paletteData, loading: paletteLoading } = usePalette(
     cocktail.strDrinkThumb || '',
@@ -66,12 +69,12 @@ const ShowCocktail = ({ cocktail }) => {
           )}
         </Col>
         <Col>
-          <Card>
+          <Card className={`${darkMode ? 'mini-card-dark' : 'mini-card-light'}`}>
             <Card.Body>
               <Card.Title>{cocktail.strDrink}</Card.Title>
             </Card.Body>
           </Card>
-          <Card>
+          <Card className={`${darkMode ? 'mini-card-dark' : 'mini-card-light'}`}>
             <Card.Body>
               <Card.Text>
                 <Label content="Ingrédients"></Label>
@@ -83,7 +86,7 @@ const ShowCocktail = ({ cocktail }) => {
       </Row>
       <Row>
         <Col>
-          <Card style={{ minWidth: '38rem' }}>
+          <Card className={`${darkMode ? 'mini-card-dark' : 'mini-card-light'}`} style={{ minWidth: '38rem'}}>
             <Card.Body>
               <Card.Text>
                 {cocktail.strInstructions && (

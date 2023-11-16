@@ -1,9 +1,21 @@
 import React from 'react';
 import {ShowCocktail} from "../../index";
+import {DarkModeProvider} from '../../../context/DarkModeContext';
+import {MemoryRouter} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default {
     title: 'public/ShowCocktail',
-    component: ShowCocktail
+    component: ShowCocktail,
+    decorators: [
+        (Story) => (
+            <DarkModeProvider>
+                <MemoryRouter>
+                    <Story/>
+                </MemoryRouter>
+            </DarkModeProvider>
+        ),
+    ],
 };
 
 const Template = (args) => <ShowCocktail {...args} />;
