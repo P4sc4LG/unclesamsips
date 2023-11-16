@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { usePalette } from 'color-thief-react';
 import Color from 'color';
 import { Col, Row } from 'react-bootstrap';
@@ -11,14 +11,18 @@ const CocktailByIngredient = () => {
   const { name } = useParams(); // Récupérez le nom de l'ingrédient depuis l'URL
   const { fetchCocktailsByIngredient } = useCocktail();
   const [cocktails, setCocktails] = useState([]);
+  const flag = useRef(false);
 
   useEffect(() => {
-    async function fetchCocktails() {
-      const data = await fetchCocktailsByIngredient(name);
-      setCocktails(data);
+    if (flag.current === false) {
+      async function fetchCocktails() {
+        const data = await fetchCocktailsByIngredient(name);
+        
+        setCocktails(data);
+      }
+      fetchCocktails();
     }
-
-    fetchCocktails();
+    return () => flag.current = true;
   }, [name]);
 
   return (

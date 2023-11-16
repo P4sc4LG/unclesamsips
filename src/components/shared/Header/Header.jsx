@@ -2,10 +2,11 @@ import React,{useContext} from 'react';
 import './Header.css';
 
 import logo from '../../../assets/logo.png';
-//import { Label, ProfileDropdown, Toggle } from '../../index';
+
 import Label from '../../public/Label/Label';
 import ProfileDropdown from '../ProfileDropdown/ProfileDropdown';
 import Toggle from '../Toggle/Toggle';
+
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';

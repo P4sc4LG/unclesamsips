@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 function useCocktail(nameCocktail) {
 
   const apiUrl = nameCocktail
@@ -51,16 +49,23 @@ function useCocktail(nameCocktail) {
       const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`);
       const data = await response.json();
 
-      // Récupérer les détails pour chaque cocktail
-      const cocktailsData = await Promise.all(
-        data.drinks.map(async (cocktail) => {
-          const detailedCocktailResponse = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktail.idDrink}`);
-          const detailedCocktailData = await detailedCocktailResponse.json();
-          return detailedCocktailData.drinks[0];
-        })
-      );
+      const maxConcurrentRequests = 2; 
+      const cocktailsData = [];
 
-      return cocktailsData;
+      const processBatch = async (batch) => {
+      const batchPromises = batch.map(cocktail => fetchCocktailById(cocktail.idDrink));
+      const batchResults = await Promise.all(batchPromises);
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+      cocktailsData.push(...batchResults);
+    };
+
+    for (let i = 0; i < data.drinks.length; i += maxConcurrentRequests) {
+      const batch = data.drinks.slice(i, i + maxConcurrentRequests);
+      await processBatch(batch);
+    }
+    return cocktailsData;
+
     } catch (error) {
       console.error('Erreur lors de la récupération des cocktails par ingrédient :', error);
       return [];
