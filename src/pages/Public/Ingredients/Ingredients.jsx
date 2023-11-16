@@ -2,7 +2,7 @@ import React, {useState, useContext, useEffect} from 'react';
 import {CardIngredient, Title, Search, Loading} from '../../../components/index';
 import useIngredient from '../../../hooks/useIngredient';
 import {DarkModeContext} from '../../../context/DarkModeContext';
-import './ingredients.css'; 
+import './Ingredients.css'; 
 
 const Ingredients = () => {
     const { fetchIngredients } = useIngredient();

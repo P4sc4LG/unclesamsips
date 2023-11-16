@@ -30,7 +30,7 @@ const Header = () => {
             }} /></Nav.Item></Link>
           </Nav>
           <Nav className="ms-auto">
-            <div className="vr me-4"></div>
+            <div className="vr me-4" style={{ backgroundColor:'#FFDF2B'}}></div>
             <Nav.Item style={{ paddingTop: '1em', paddingRight: '1em' }}><Toggle /></Nav.Item>
             <ProfileDropdown></ProfileDropdown>
           </Nav>

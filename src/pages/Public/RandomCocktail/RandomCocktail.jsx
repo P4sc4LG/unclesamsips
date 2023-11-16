@@ -9,6 +9,7 @@ const RandomCocktail = () => {
     const [randomCocktail, setRandomCocktail] = useState([]);
     const flag = useRef(false);
     const {fetchRandomCocktail} = useCocktail();
+
     const {darkMode} = useContext(DarkModeContext);
     const [isLoading, setIsLoading] = useState();
 

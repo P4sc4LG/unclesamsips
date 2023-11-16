@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { CardCocktail, Title, Search, Loading } from '../../../components/index';
 import useCocktail from '../../../hooks/useCocktail';
-import './accueil.css';
-import { DarkModeContext } from '../../../context/DarkModeContext';
+import './Accueil.css';
+import {DarkModeContext} from '../../../context/DarkModeContext';
 
 const Accueil = () => {
     const { fetchCocktails } = useCocktail(null);
     const [cocktails, setCocktails] = useState([]);
-
+    
     const [isLoading, setIsLoading] = useState();
     const { darkMode } = useContext(DarkModeContext);
     const [currentPage, setCurrentPage] = useState(1);
